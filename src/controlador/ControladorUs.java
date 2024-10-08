@@ -106,7 +106,7 @@ public class ControladorUs implements ActionListener{
        us.setUsuario_contraseña(tcontraseña);
        us.setUsuario_telefono(telefono);
        
-       resultado=dao1.setAgregar(us);
+       resultado=dao1.setActualizar(us);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vista1,"Se ingreso correctamente");

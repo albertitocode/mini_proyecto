@@ -4,8 +4,8 @@
  */
 package modelo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,8 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author hgust
  */
-public class UsuariosDao implements Crud<Usuarios>{
-        
+public class RolDao implements Crud<Rol> {
     Conexion conectar= new Conexion();
     Connection conex;
     PreparedStatement ps;
@@ -25,24 +24,19 @@ public class UsuariosDao implements Crud<Usuarios>{
     
     @Override
     public List listar(){
-               List<Usuarios> datos=new ArrayList<Usuarios>();
-        String sql="select * from usuarios";
+        
+        List<Rol> datos=new ArrayList<Rol>();
+        String sql="select * from rol";
         try{
-            conex=conectar.getConnection();
-            ps=conex.prepareStatement(sql);
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){
-                Usuarios u=new Usuarios();
-                u.setPersona_id(rs.getInt(1));
-                u.setPersona_nombre(rs.getString(2));
-                u.setPersona_apellido(rs.getString(3));
-                u.setUsuario_id(rs.getInt(4));
-                u.setUsuario_email(rs.getString(5));
-                u.setUsuario_contraseña(rs.getString(6));
-                u.setUsuario_telefono(rs.getInt(7));
+                Rol r= new Rol();
+                r.setRol_id(rs.getInt(1));
+                r.setRol_nombre(rs.getString(2));
                 
-                
-                datos.add(u);
+                datos.add(r);
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.toString());
@@ -57,24 +51,18 @@ public class UsuariosDao implements Crud<Usuarios>{
             }
         }
         return datos;
-        }
-    
-    @Override
-    public int setAgregar(Usuarios us){
-       int r;
-        String sql="INSERT INTO usuarios VALUES(?,?,?,?,?,?,?)";
+    }
+     @Override
+    public int setAgregar(Rol r){
+//       int r;
+        String sql="INSERT INTO rol VALUES(?,?)";
         
         try{
-            conex=conectar.getConnection();
-            ps=conex.prepareStatement(sql);
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
             
-            ps.setInt(1,us.getPersona_id());
-            ps.setString(2,us.getPersona_nombre());
-            ps.setString(3,us.getPersona_apellido());
-            ps.setInt(4,us.getUsuario_id());
-            ps.setString(5, us.getUsuario_email());
-            ps.setString(6, us.getUsuario_contraseña());
-            ps.setInt(7, us.getUsuario_telefono());
+            ps.setInt(1,r.getRol_id());
+            ps.setString(2,r.getRol_nombre());
             
             ps.executeUpdate();
             return 1;
@@ -93,23 +81,20 @@ public class UsuariosDao implements Crud<Usuarios>{
         }
     }
     @Override
-    public int setActualizar(Usuarios us){
-        String sql="UPDATE usuarios SET persona_id=?, persona_nombre?, persona_apellido=?, usuario_id=?, usuario_email=?, usuario_contraseña=?,usuario_telefono=?";
+    public int setActualizar(Rol r){
+        String sql="UPDATE rol SET rol_id=?, rol_nombre=?";
         
         try{
-            conex=conectar.getConnection();
-            ps=conex.prepareStatement(sql);
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
             
-           ps.setInt(1,us.getPersona_id());
-            ps.setString(2,us.getPersona_nombre());
-            ps.setString(3,us.getPersona_apellido());
-            ps.setInt(4,us.getUsuario_id());
-            ps.setString(5, us.getUsuario_email());
-            ps.setString(6, us.getUsuario_contraseña());
-            ps.setInt(7, us.getUsuario_telefono());
+            ps.setInt(1,r.getRol_id());
+            ps.setString(2,r.getRol_nombre());
             
             ps.executeUpdate();
+            
             return 1;
+          
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.toString());
         return 0;
@@ -124,11 +109,11 @@ public class UsuariosDao implements Crud<Usuarios>{
         }
     }
     @Override
-    public int setEliminar(int per_id){
-        String sql= "DELETE FROM usuarios WHERE persona_id="+per_id;
+    public int setEliminar(int rol_id){
+        String sql= "DELETE FROM rol WHERE rol_id="+rol_id;
         try{
-            conex=conectar.getConnection();
-            ps=conex.prepareStatement(sql);
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
             ps.executeUpdate();
             return 1;
         }catch(Exception e){
