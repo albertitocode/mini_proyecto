@@ -12,9 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Rol;
 import modelo.RolDao;
-import modelo.Usuarios;
 import vista.VistaRol;
-import vista.VistaUsuarios;
 
 
 /**

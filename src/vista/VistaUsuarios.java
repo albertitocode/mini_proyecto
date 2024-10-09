@@ -50,6 +50,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         miScroll = new javax.swing.JScrollPane();
         miTabla = new javax.swing.JTable();
+        enviar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,10 +110,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
 
         miTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "NOMBRE", "APELLIDO", "USUARIO ID", "CORREO", "CONTRASEÑA", "TELEFONO"
@@ -121,6 +119,8 @@ public class VistaUsuarios extends javax.swing.JFrame {
         miScroll.setViewportView(miTabla);
 
         jScrollPane2.setViewportView(miScroll);
+
+        enviar.setText("Enviar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -179,7 +179,9 @@ public class VistaUsuarios extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(Uactualizar)
                         .addGap(42, 42, 42)
-                        .addComponent(Ueliminar))
+                        .addComponent(Ueliminar)
+                        .addGap(38, 38, 38)
+                        .addComponent(enviar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -214,7 +216,8 @@ public class VistaUsuarios extends javax.swing.JFrame {
                     .addComponent(Ubuscar)
                     .addComponent(Uinsertar)
                     .addComponent(Uactualizar)
-                    .addComponent(Ueliminar))
+                    .addComponent(Ueliminar)
+                    .addComponent(enviar))
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
@@ -288,6 +291,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
     public javax.swing.JButton Ubuscar;
     public javax.swing.JButton Ueliminar;
     public javax.swing.JButton Uinsertar;
+    public javax.swing.JButton enviar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;

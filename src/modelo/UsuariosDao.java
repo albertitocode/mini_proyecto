@@ -94,19 +94,19 @@ public class UsuariosDao implements Crud<Usuarios>{
     }
     @Override
     public int setActualizar(Usuarios us){
-        String sql="UPDATE usuarios SET persona_id=?, persona_nombre?, persona_apellido=?, usuario_id=?, usuario_email=?, usuario_contraseña=?,usuario_telefono=?";
+        String sql="UPDATE usuarios SET persona_nombre=?, persona_apellido=?, usuario_email=?, usuario_contrasena=?,usuario_telefono=? WHERE persona_id="+us.getPersona_id();
         
         try{
             conex=conectar.getConnection();
             ps=conex.prepareStatement(sql);
             
-           ps.setInt(1,us.getPersona_id());
-            ps.setString(2,us.getPersona_nombre());
-            ps.setString(3,us.getPersona_apellido());
-            ps.setInt(4,us.getUsuario_id());
-            ps.setString(5, us.getUsuario_email());
-            ps.setString(6, us.getUsuario_contraseña());
-            ps.setInt(7, us.getUsuario_telefono());
+//           ps.setInt(1,us.getPersona_id());
+            ps.setString(1,us.getPersona_nombre());
+            ps.setString(2,us.getPersona_apellido());
+//            ps.setInt(3,us.getUsuario_id());
+            ps.setString(3, us.getUsuario_email());
+            ps.setString(4, us.getUsuario_contraseña());
+            ps.setInt(5, us.getUsuario_telefono());
             
             ps.executeUpdate();
             return 1;

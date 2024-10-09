@@ -22,7 +22,7 @@ public class Usuarios extends Persona {
         this.usuario_telefono = usuario_telefono;
     }
     public Usuarios(){
-
+        
     }    
 
     public int getUsuario_id() {

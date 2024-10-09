@@ -31,6 +31,8 @@ public class ControladorUs implements ActionListener{
         this.vista1.Uinsertar.addActionListener(this);
         this.vista1.Uactualizar.addActionListener(this);
         this.vista1.Ueliminar.addActionListener(this);
+        this.vista1.enviar.addActionListener(this);
+        this.vista1.enviar.setEnabled(flag);
     }
     
     @Override
@@ -39,8 +41,79 @@ public class ControladorUs implements ActionListener{
             limpiarTabla();
             getListar(vista1.miTabla);
             JOptionPane.showMessageDialog(vista1, "Consulta exitosa");
+            
+        }
+        if (ae.getSource()==vista1.Uinsertar){
+          if(!vista1.Tid.getText().toString().isBlank()&&
+             !vista1.TNombre.getText().toString().isBlank()&&
+             !vista1.Tapellido.getText().toString().isBlank()&&
+             !vista1.Tid_usuario.getText().toString().isBlank()&&
+             !vista1.Tcorreo.getText().toString().isBlank()&&
+             !vista1.Tcontraseña.getText().toString().isBlank()&&
+             !vista1.Ttelefono.getText().toString().isBlank())
+          {
+              setAgregar();
+              nuevo();
+              limpiarTabla();
+          getListar(vista1.miTabla);
+          
+          
+//              JOptionPane.showMessageDialog(vista,"Vamos bien");
+          }else{
+              JOptionPane.showMessageDialog(vista1,"Vamos");
+          }
+          
+        }
+        if(ae.getSource()==vista1.Uactualizar){
+         flag=true;
+         int fila=vista1.miTabla.getSelectedRow();
+            if(fila==-1){
+                JOptionPane.showMessageDialog(vista1,"debe selecionar una fila");
+            }else{
+                int p_id=Integer.parseInt(vista1.miTabla.getValueAt(fila, 0).toString());
+                String p_nombre=vista1.miTabla.getValueAt(fila, 1).toString();
+                String p_apellido=vista1.miTabla.getValueAt(fila, 2).toString();
+                int u_id=Integer.parseInt(vista1.miTabla.getValueAt(fila, 3).toString());
+                String u_email=vista1.miTabla.getValueAt(fila, 4).toString();
+                String u_contraseña=vista1.miTabla.getValueAt(fila, 5).toString();
+                int u_telefono=Integer.parseInt(vista1.miTabla.getValueAt(fila, 6).toString());
+                
+              vista1.Tid.setText(""+p_id);vista1.Tid.setEditable(false);
+              vista1.TNombre.setText(p_nombre);
+              vista1.Tapellido.setText(p_apellido);
+              vista1.TNombre.setText(p_nombre);
+              vista1.Tid_usuario.setText(""+u_id);vista1.Tid_usuario.setEditable(false);
+              vista1.Tcorreo.setText(u_email);
+              vista1.Tcontraseña.setText(u_contraseña);
+              vista1.Ttelefono.setText(""+u_telefono);
+              
+              vista1.enviar.setEnabled(flag);
+            }
+        }
+        if(ae.getSource()==vista1.Ueliminar){
+            int fila = vista1.miTabla.getSelectedRow();
+            if(!vista1.Tid.getText().isBlank()){
+                int p_id=Integer.parseInt(vista1.Tid.getText().toString());
+                setEliminar(p_id);
+            }
+            
+        }
+        if(ae.getSource()==vista1.enviar && flag==true){
+            int id=Integer.parseInt(vista1.Tid.getText());
+            setActualizar(id);
+            flag=false;
+            nuevo();
+            limpiarTabla();
+            getListar(vista1.miTabla);
+            vista1.enviar.setEnabled(flag);
+            vista1.Tid.setEditable(true);
+            vista1.Tid_usuario.setEditable(true);
+            
         }
     }
+    
+    
+
     public void getListar(JTable tabla){
         modelito=(DefaultTableModel) tabla.getModel();
         List<Usuarios>lista = dao1.listar();

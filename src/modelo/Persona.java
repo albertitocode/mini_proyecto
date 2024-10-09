@@ -19,6 +19,9 @@ public class Persona {
         this.persona_apellido = persona_apellido;
     }
 
+    public Persona() {
+    }
+    
     public int getPersona_id() {
         return persona_id;
     }

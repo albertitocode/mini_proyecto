@@ -24,20 +24,20 @@ public class Index {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        VistaUsuarios vis = new VistaUsuarios();
-//        ControladorUs con = new ControladorUs(vis);
-//        vis.setVisible(true);
-//        vis.setSize(536,720);
-//        vis.setLocation(300, 10);
-//        
-//        vis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-     VistaRol ro = new VistaRol();
-        ControladorRol con = new ControladorRol(ro);
-        ro.setVisible(true);
-        ro.setSize(850,600);
-        ro.setLocation(300, 10);
+        VistaUsuarios vis = new VistaUsuarios();
+        ControladorUs con = new ControladorUs(vis);
+        vis.setVisible(true);
+        vis.setSize(850,600);
+        vis.setLocation(300, 10);
         
-        ro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        vis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//     VistaRol ro = new VistaRol();
+//        ControladorRol con = new ControladorRol(ro);
+//        ro.setVisible(true);
+//        ro.setSize(850,600);
+//        ro.setLocation(300, 10);
+//        
+//        ro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 //        VistaCategoria ca = new VistaCategoria();
 //        ControladorCategoria con = new ControladorCategoria(ca);
