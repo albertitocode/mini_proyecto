@@ -37,6 +37,7 @@ public class VistaCategoria extends javax.swing.JFrame {
         insertar = new javax.swing.JButton();
         actualizar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
+        enviar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         mitabla = new javax.swing.JTable();
 
@@ -80,12 +81,16 @@ public class VistaCategoria extends javax.swing.JFrame {
 
         eliminar.setText("Eliminar");
 
+        enviar.setText("Enviar");
+        enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarActionPerformed(evt);
+            }
+        });
+
         mitabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "NOMBRE"
@@ -122,7 +127,9 @@ public class VistaCategoria extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(actualizar)
                         .addGap(31, 31, 31)
-                        .addComponent(eliminar))
+                        .addComponent(eliminar)
+                        .addGap(45, 45, 45)
+                        .addComponent(enviar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -146,7 +153,8 @@ public class VistaCategoria extends javax.swing.JFrame {
                     .addComponent(buscar)
                     .addComponent(insertar)
                     .addComponent(actualizar)
-                    .addComponent(eliminar))
+                    .addComponent(eliminar)
+                    .addComponent(enviar))
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -160,6 +168,10 @@ public class VistaCategoria extends javax.swing.JFrame {
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_insertarActionPerformed
+
+    private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,6 +212,7 @@ public class VistaCategoria extends javax.swing.JFrame {
     public javax.swing.JButton actualizar;
     public javax.swing.JButton buscar;
     public javax.swing.JButton eliminar;
+    public javax.swing.JButton enviar;
     public javax.swing.JButton insertar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -33,11 +33,13 @@ public class ControladorCategoria implements ActionListener {
         this.vista3.insertar.addActionListener(this);
         this.vista3.actualizar.addActionListener(this);
         this.vista3.eliminar.addActionListener(this);
+        this.vista3.enviar.addActionListener(this);
+        this.vista3.enviar.setEnabled(flag);
     }
     @Override
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==vista3.buscar){
-//            limpiarTabla();
+            limpiarTabla();
             getListar(vista3.mitabla);
             JOptionPane.showMessageDialog(vista3, "Consulta exitosa");
         }
@@ -47,7 +49,7 @@ public class ControladorCategoria implements ActionListener {
           {
               setAgregar();
               nuevo();
-//              limpiarTabla();
+              limpiarTabla();
           getListar(vista3.mitabla);
           
           
@@ -59,7 +61,7 @@ public class ControladorCategoria implements ActionListener {
         }
         
         if(ae.getSource()==vista3.actualizar){
-//         flag=true;
+         flag=true;
          int fila=vista3.mitabla.getSelectedRow();
             if(fila==-1){
                 JOptionPane.showMessageDialog(vista3,"debe selecionar una fila");
@@ -71,6 +73,7 @@ public class ControladorCategoria implements ActionListener {
               vista3.tid.setText(""+c_id);vista3.tid.setEditable(false);
               vista3.tnombre.setText(c_nombre);
               
+              vista3.enviar.setEnabled(flag);
             }
         }
         if(ae.getSource()==vista3.eliminar){
@@ -78,7 +81,21 @@ public class ControladorCategoria implements ActionListener {
             if(!vista3.tid.getText().isBlank()){
                 int c_id=Integer.parseInt(vista3.tid.getText().toString());
                 setEliminar(c_id);
+                limpiarTabla();
+                getListar(vista3.mitabla);
             }
+            
+        }
+        if(ae.getSource()==vista3.enviar && flag==true){
+            int id=Integer.parseInt(vista3.tid.getText());
+            setActualizar(id);
+            flag=false;
+            nuevo();
+            limpiarTabla();
+            getListar(vista3.mitabla);
+            vista3.enviar.setEnabled(flag);
+            vista3.tid.setEditable(true);
+            
             
         }
     }

@@ -32,11 +32,13 @@ public class ControladorRol implements ActionListener{
         this.vista2.insertar.addActionListener(this);
         this.vista2.actualizar.addActionListener(this);
         this.vista2.eliminar.addActionListener(this);
+        this.vista2.enviar.addActionListener(this);
+        this.vista2.enviar.setEnabled(flag);
     }
     @Override
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==vista2.buscar){
-//            limpiarTabla();
+            limpiarTabla();
             getListar(vista2.mitablita);
             JOptionPane.showMessageDialog(vista2, "Consulta exitosa");
         }
@@ -46,7 +48,7 @@ public class ControladorRol implements ActionListener{
           {
               setAgregar();
               nuevo();
-//              limpiarTabla();
+              limpiarTabla();
           getListar(vista2.mitablita);
           
           
@@ -57,7 +59,7 @@ public class ControladorRol implements ActionListener{
           
         }
         if(ae.getSource()==vista2.actualizar){
-//         flag=true;
+         flag=true;
          int fila=vista2.mitablita.getSelectedRow();
             if(fila==-1){
                 JOptionPane.showMessageDialog(vista2,"debe selecionar una fila");
@@ -69,6 +71,8 @@ public class ControladorRol implements ActionListener{
               vista2.tid.setText(""+r_id);vista2.tid.setEditable(false);
               vista2.tnombre.setText(r_nombre);
               
+              vista2.enviar.setEnabled(flag);
+              
             }
         }
         if(ae.getSource()==vista2.eliminar){
@@ -76,7 +80,21 @@ public class ControladorRol implements ActionListener{
             if(!vista2.tid.getText().isBlank()){
                 int r_id=Integer.parseInt(vista2.tid.getText().toString());
                 setEliminar(r_id);
+                limpiarTabla();
+                getListar(vista2.mitablita);
             }
+            
+        }
+        if(ae.getSource()==vista2.enviar && flag==true){
+            int id=Integer.parseInt(vista2.tid.getText());
+            setActualizar(id);
+            flag=false;
+            nuevo();
+            limpiarTabla();
+            getListar(vista2.mitablita);
+            vista2.enviar.setEnabled(flag);
+            vista2.tid.setEditable(true);
+            
             
         }
         

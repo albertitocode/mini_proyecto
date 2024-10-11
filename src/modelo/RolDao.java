@@ -82,14 +82,14 @@ public class RolDao implements Crud<Rol> {
     }
     @Override
     public int setActualizar(Rol r){
-        String sql="UPDATE rol SET rol_id=?, rol_nombre=?";
+        String sql="UPDATE rol SET  rol_nombre=? WHERE rol_id="+r.getRol_id();
         
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
             
-            ps.setInt(1,r.getRol_id());
-            ps.setString(2,r.getRol_nombre());
+         
+            ps.setString(1,r.getRol_nombre());
             
             ps.executeUpdate();
             

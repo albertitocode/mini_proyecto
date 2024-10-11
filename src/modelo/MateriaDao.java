@@ -83,15 +83,15 @@ public class MateriaDao implements Crud<MateriaPrima>{
     }
     @Override
     public int setActualizar(MateriaPrima mp){
-        String sql="UPDATE materia_prima SET materia_id=?, materia_nombre=?,materia_stock=?";
+        String sql="UPDATE materia_prima SET materia_nombre=?,materia_stock=? WHERE materia_id="+mp.getMateria_id();
         
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
             
-            ps.setInt(1,mp.getMateria_id());
-            ps.setString(2,mp.getMateria_nombre());
-            ps.setInt(3,mp.getMateria_stock());
+            
+            ps.setString(1,mp.getMateria_nombre());
+            ps.setInt(2,mp.getMateria_stock());
             
             ps.executeUpdate();
             

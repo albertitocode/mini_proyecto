@@ -34,11 +34,13 @@ public class ControladorMp implements ActionListener {
         this.vista4.insertar.addActionListener(this);
         this.vista4.actualizar.addActionListener(this);
         this.vista4.eliminar.addActionListener(this);
+        this.vista4.enviar.addActionListener(this);
+        this.vista4.enviar.setEnabled(flag);
     }
      @Override
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==vista4.buscar){
-//            limpiarTabla();
+            limpiarTabla();
             getListar(vista4.mitablita);
             JOptionPane.showMessageDialog(vista4, "Consulta exitosa");
         }
@@ -49,7 +51,7 @@ public class ControladorMp implements ActionListener {
           {
               setAgregar();
               nuevo();
-//              limpiarTabla();
+              limpiarTabla();
           getListar(vista4.mitablita);
           
           
@@ -60,7 +62,7 @@ public class ControladorMp implements ActionListener {
           
         }
         if(ae.getSource()==vista4.actualizar){
-//         flag=true;
+         flag=true;
          int fila=vista4.mitablita.getSelectedRow();
             if(fila==-1){
                 JOptionPane.showMessageDialog(vista4,"debe selecionar una fila");
@@ -73,6 +75,7 @@ public class ControladorMp implements ActionListener {
               vista4.tnombre.setText(mp_nombre);
               vista4.tstock.setText(""+mp_stock);
               
+              vista4.enviar.setEnabled(flag);
             }
         }
         if(ae.getSource()==vista4.eliminar){
@@ -80,7 +83,21 @@ public class ControladorMp implements ActionListener {
             if(!vista4.tid.getText().isBlank()){
                 int mp_id=Integer.parseInt(vista4.tid.getText().toString());
                 setEliminar(mp_id);
+                limpiarTabla();
+                getListar(vista4.mitablita);
             }
+            
+        }
+        if(ae.getSource()==vista4.enviar && flag==true){
+            int id=Integer.parseInt(vista4.tid.getText());
+            setActualizar(id);
+            flag=false;
+            nuevo();
+            limpiarTabla();
+            getListar(vista4.mitablita);
+            vista4.enviar.setEnabled(flag);
+            vista4.tid.setEditable(true);
+            
             
         }
         

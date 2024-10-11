@@ -82,14 +82,14 @@ public class CategoriaDao implements Crud<Categoria>{
     }
     @Override
     public int setActualizar(Categoria c){
-        String sql="UPDATE categoria SET categoria_id=?, categoria_nombre=?";
+        String sql="UPDATE categoria SET categoria_nombre=? WHERE categoria_id="+c.getCategoria_id();
         
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
             
-            ps.setInt(1,c.getCategoria_id());
-            ps.setString(2,c.getCategoria_nombre());
+            
+            ps.setString(1,c.getCategoria_nombre());
             
             ps.executeUpdate();
             

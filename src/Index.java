@@ -1,10 +1,12 @@
 
 import controlador.ControladorCategoria;
+import controlador.ControladorLogin;
 import controlador.ControladorMp;
 import controlador.ControladorRol;
 import controlador.ControladorUs;
 import javax.swing.JFrame;
 import vista.VistaCategoria;
+import vista.VistaLogin;
 import vista.VistaMateria;
 import vista.VistaRol;
 import vista.VistaUsuarios;
@@ -24,14 +26,15 @@ public class Index {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VistaUsuarios vis = new VistaUsuarios();
-        ControladorUs con = new ControladorUs(vis);
-        vis.setVisible(true);
-        vis.setSize(850,600);
-        vis.setLocation(300, 10);
+//        VistaUsuarios vis = new VistaUsuarios();
+//        ControladorUs con = new ControladorUs(vis);
+//        vis.setVisible(true);
+//        vis.setSize(850,600);
+//        vis.setLocation(300, 10);
+//        
+//        vis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        vis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//     VistaRol ro = new VistaRol();
+//        VistaRol ro = new VistaRol();
 //        ControladorRol con = new ControladorRol(ro);
 //        ro.setVisible(true);
 //        ro.setSize(850,600);
@@ -45,7 +48,8 @@ public class Index {
 //        ca.setSize(850,600);
 //        ca.setLocation(300, 10);
 //        
-//        ca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        ca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);s
+
 //        VistaMateria mp = new VistaMateria();
 //        ControladorMp con = new ControladorMp(mp);
 //        mp.setVisible(true);
@@ -53,6 +57,14 @@ public class Index {
 //        mp.setLocation(300, 10);
 //        
 //        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        VistaLogin log = new VistaLogin();
+        ControladorLogin con = new ControladorLogin(log);
+        log.setVisible(true);
+        log.setSize(850,600);
+        log.setLocation(300, 10);
+        
+        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }

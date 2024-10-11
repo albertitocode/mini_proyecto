@@ -39,6 +39,7 @@ public class VistaMateria extends javax.swing.JFrame {
         insertar = new javax.swing.JButton();
         actualizar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
+        enviar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         mitablita = new javax.swing.JTable();
 
@@ -84,12 +85,16 @@ public class VistaMateria extends javax.swing.JFrame {
             }
         });
 
+        enviar.setText("Enviar");
+        enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarActionPerformed(evt);
+            }
+        });
+
         mitablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "NOMBRE", "STOCK"
@@ -127,7 +132,9 @@ public class VistaMateria extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addComponent(actualizar)
                         .addGap(46, 46, 46)
-                        .addComponent(eliminar))
+                        .addComponent(eliminar)
+                        .addGap(34, 34, 34)
+                        .addComponent(enviar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -155,7 +162,8 @@ public class VistaMateria extends javax.swing.JFrame {
                     .addComponent(buscar)
                     .addComponent(insertar)
                     .addComponent(actualizar)
-                    .addComponent(eliminar))
+                    .addComponent(eliminar)
+                    .addComponent(enviar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -169,6 +177,10 @@ public class VistaMateria extends javax.swing.JFrame {
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eliminarActionPerformed
+
+    private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,6 +221,7 @@ public class VistaMateria extends javax.swing.JFrame {
     public javax.swing.JButton actualizar;
     public javax.swing.JButton buscar;
     public javax.swing.JButton eliminar;
+    public javax.swing.JButton enviar;
     public javax.swing.JButton insertar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

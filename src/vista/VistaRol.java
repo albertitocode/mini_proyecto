@@ -37,7 +37,8 @@ public class VistaRol extends javax.swing.JFrame {
         insertar = new javax.swing.JButton();
         actualizar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        enviar = new javax.swing.JButton();
+        miScroll = new javax.swing.JScrollPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         mitablita = new javax.swing.JTable();
 
@@ -82,12 +83,11 @@ public class VistaRol extends javax.swing.JFrame {
 
         eliminar.setText("Eliminar");
 
+        enviar.setText("Enviar");
+
         mitablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "NOMBRE"
@@ -95,7 +95,7 @@ public class VistaRol extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(mitablita);
 
-        jScrollPane1.setViewportView(jScrollPane2);
+        miScroll.setViewportView(jScrollPane2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,10 +125,12 @@ public class VistaRol extends javax.swing.JFrame {
                                 .addGap(45, 45, 45)
                                 .addComponent(actualizar)
                                 .addGap(32, 32, 32)
-                                .addComponent(eliminar))))
+                                .addComponent(eliminar)
+                                .addGap(53, 53, 53)
+                                .addComponent(enviar))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(miScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -149,9 +151,10 @@ public class VistaRol extends javax.swing.JFrame {
                     .addComponent(buscar)
                     .addComponent(insertar)
                     .addComponent(actualizar)
-                    .addComponent(eliminar))
+                    .addComponent(eliminar)
+                    .addComponent(enviar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(miScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
@@ -204,14 +207,15 @@ public class VistaRol extends javax.swing.JFrame {
     public javax.swing.JButton actualizar;
     public javax.swing.JButton buscar;
     public javax.swing.JButton eliminar;
+    public javax.swing.JButton enviar;
     public javax.swing.JButton insertar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lid;
     private javax.swing.JLabel lnombre;
     private javax.swing.JLabel ltitulo2;
+    private javax.swing.JScrollPane miScroll;
     public javax.swing.JTable mitablita;
     public javax.swing.JTextField tid;
     public javax.swing.JTextField tnombre;

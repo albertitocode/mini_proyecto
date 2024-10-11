@@ -95,6 +95,9 @@ public class ControladorUs implements ActionListener{
             if(!vista1.Tid.getText().isBlank()){
                 int p_id=Integer.parseInt(vista1.Tid.getText().toString());
                 setEliminar(p_id);
+                limpiarTabla();
+            getListar(vista1.miTabla);
+                
             }
             
         }
