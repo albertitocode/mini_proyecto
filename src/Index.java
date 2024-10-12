@@ -3,12 +3,14 @@ import controlador.ControladorCategoria;
 import controlador.ControladorLogin;
 import controlador.ControladorMp;
 import controlador.ControladorRol;
+import controlador.ControladorRopaVenta;
 import controlador.ControladorUs;
 import javax.swing.JFrame;
 import vista.VistaCategoria;
 import vista.VistaLogin;
 import vista.VistaMateria;
 import vista.VistaRol;
+import vista.VistaRopaVenta;
 import vista.VistaUsuarios;
 
 /*
@@ -58,13 +60,21 @@ public class Index {
 //        
 //        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        VistaLogin log = new VistaLogin();
-        ControladorLogin con = new ControladorLogin(log);
-        log.setVisible(true);
-        log.setSize(850,600);
-        log.setLocation(300, 10);
+//        VistaLogin log = new VistaLogin();
+//        ControladorLogin con = new ControladorLogin(log);
+//        log.setVisible(true);
+//        log.setSize(850,600);
+//        log.setLocation(300, 10);
+//        
+//        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        VistaRopaVenta ropv = new VistaRopaVenta();
+        ControladorRopaVenta con = new ControladorRopaVenta(ropv);
+        ropv.setVisible(true);
+        ropv.setSize(850,600);
+        ropv.setLocation(300, 10);
+        
+        ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }
