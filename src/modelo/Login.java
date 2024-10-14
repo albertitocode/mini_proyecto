@@ -11,14 +11,25 @@ package modelo;
 public class Login {
     String correo;
     String contrasena;
+    String rol;
 
-    public Login(String correo, String contrasena) {
+    public Login(String correo, String contrasena,String rol) {
         this.correo = correo;
         this.contrasena = contrasena;
+        this.rol=rol;
     }
 
     public Login() {
     }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+    
 
     public String getCorreo() {
         return correo;

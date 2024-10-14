@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 import modelo.RopaVDao;
 import modelo.RopaVenta;
-
+import modelo.LoginDao;
 import vista.VistaRopaVenta;
 
 /**
@@ -27,6 +27,8 @@ public class ControladorRopaVenta implements ActionListener {
     public RopaVenta rpv= new RopaVenta();
     public VistaRopaVenta vista5 = new VistaRopaVenta();
     DefaultTableModel modelito5=new DefaultTableModel();
+    public String usu;
+    public LoginDao dal=new LoginDao();
 
     public ControladorRopaVenta(VistaRopaVenta visrpv) {
         this.vista5=visrpv;
@@ -36,8 +38,8 @@ public class ControladorRopaVenta implements ActionListener {
         this.vista5.eliminar.addActionListener( this);
         this.vista5.enviar.addActionListener( this);
         da5.listaCategoria(this.vista5.tcategoria);
-        
-        
+        dal.getUsu();
+        this.vista5.lusu.setText("Bienvenido "+dal.getUsu());
     }
     @Override
     public void actionPerformed(ActionEvent ae){
@@ -127,6 +129,7 @@ public class ControladorRopaVenta implements ActionListener {
         }
     
     }
+  
      public void getListar(JTable tabla){
         modelito5=(DefaultTableModel) tabla.getModel();
         List<RopaVenta>lista = da5.listar();

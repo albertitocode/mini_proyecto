@@ -13,17 +13,33 @@ public class Usuarios extends Persona {
     String usuario_email;
     String usuario_contraseña;
     int usuario_telefono;
+    String rol;
 
-    public Usuarios(int usuario_id, String usuario_email, String usuario_contraseña, int usuario_telefono, int persona_id, String persona_nombre, String persona_apellido) {
+    public Usuarios(int usuario_id, String usuario_email, String usuario_contraseña, int usuario_telefono, String rol,int persona_id, String persona_nombre, String persona_apellido) {
         super(persona_id, persona_nombre, persona_apellido);
         this.usuario_id = usuario_id;
         this.usuario_email = usuario_email;
         this.usuario_contraseña = usuario_contraseña;
         this.usuario_telefono = usuario_telefono;
+        this.rol=rol;
+        
     }
     public Usuarios(){
         
     }    
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    
+
+    
+    
 
     public int getUsuario_id() {
         return usuario_id;

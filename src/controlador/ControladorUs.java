@@ -33,6 +33,7 @@ public class ControladorUs implements ActionListener{
         this.vista1.Ueliminar.addActionListener(this);
         this.vista1.enviar.addActionListener(this);
         this.vista1.enviar.setEnabled(flag);
+        dao1.listaRol(this.vista1.trol);
     }
     
     @Override
@@ -50,7 +51,8 @@ public class ControladorUs implements ActionListener{
              !vista1.Tid_usuario.getText().toString().isBlank()&&
              !vista1.Tcorreo.getText().toString().isBlank()&&
              !vista1.Tcontraseña.getText().toString().isBlank()&&
-             !vista1.Ttelefono.getText().toString().isBlank())
+             !vista1.Ttelefono.getText().toString().isBlank()&&
+             !vista1.trol.getSelectedItem().toString().isBlank())
           {
               setAgregar();
               nuevo();
@@ -77,6 +79,7 @@ public class ControladorUs implements ActionListener{
                 String u_email=vista1.miTabla.getValueAt(fila, 4).toString();
                 String u_contraseña=vista1.miTabla.getValueAt(fila, 5).toString();
                 int u_telefono=Integer.parseInt(vista1.miTabla.getValueAt(fila, 6).toString());
+                String rol=vista1.miTabla.getValueAt(fila, 7).toString();
                 
               vista1.Tid.setText(""+p_id);vista1.Tid.setEditable(false);
               vista1.TNombre.setText(p_nombre);
@@ -86,6 +89,7 @@ public class ControladorUs implements ActionListener{
               vista1.Tcorreo.setText(u_email);
               vista1.Tcontraseña.setText(u_contraseña);
               vista1.Ttelefono.setText(""+u_telefono);
+              vista1.trol.setSelectedItem(rol);
               
               vista1.enviar.setEnabled(flag);
             }
@@ -120,7 +124,7 @@ public class ControladorUs implements ActionListener{
     public void getListar(JTable tabla){
         modelito=(DefaultTableModel) tabla.getModel();
         List<Usuarios>lista = dao1.listar();
-        Object[] object=new Object[7];
+        Object[] object=new Object[8];
         
         for(int indice=0;indice<lista.size();indice++){
             object[0]=lista.get(indice).getPersona_id();
@@ -130,6 +134,7 @@ public class ControladorUs implements ActionListener{
             object[4]=lista.get(indice).getUsuario_email();
             object[5]=lista.get(indice).getUsuario_contraseña();
             object[6]=lista.get(indice).getUsuario_telefono();
+            object[7]=lista.get(indice).getRol();
             modelito.addRow(object);
         }
         vista1.miTabla.setModel(modelito);
@@ -144,6 +149,7 @@ public class ControladorUs implements ActionListener{
        String tcorreo=vista1.Tcorreo.getText().toString();
        String tcontraseña=vista1.Tcontraseña.getText().toString();
        int telefono=Integer.parseInt(vista1.Ttelefono.getText().toString());
+       String trol=vista1.trol.getSelectedItem().toString();
        
        us.setPersona_id(tid);
        us.setPersona_nombre(tnombre);
@@ -152,6 +158,7 @@ public class ControladorUs implements ActionListener{
        us.setUsuario_email(tcorreo);
        us.setUsuario_contraseña(tcontraseña);
        us.setUsuario_telefono(telefono);
+       us.setRol(trol);
        
        resultado=dao1.setAgregar(us);
        
@@ -173,6 +180,7 @@ public class ControladorUs implements ActionListener{
        String tcorreo=vista1.Tcorreo.getText().toString();
        String tcontraseña=vista1.Tcontraseña.getText().toString();
        int telefono=Integer.parseInt(vista1.Ttelefono.getText().toString());
+       String trol=vista1.trol.getSelectedItem().toString();
        
        us.setPersona_id(tid);
        us.setPersona_nombre(tnombre);
@@ -181,6 +189,7 @@ public class ControladorUs implements ActionListener{
        us.setUsuario_email(tcorreo);
        us.setUsuario_contraseña(tcontraseña);
        us.setUsuario_telefono(telefono);
+       us.setRol(trol);
        
        resultado=dao1.setActualizar(us);
        
@@ -211,6 +220,7 @@ public class ControladorUs implements ActionListener{
         vista1.Tcorreo.setText("");
         vista1.Tcontraseña.setText("");
         vista1.Ttelefono.setText("");
+        vista1.trol.setSelectedItem("");
         
         
     }

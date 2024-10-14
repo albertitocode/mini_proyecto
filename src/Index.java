@@ -50,7 +50,7 @@ public class Index {
 //        ca.setSize(850,600);
 //        ca.setLocation(300, 10);
 //        
-//        ca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);s
+//        ca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 //        VistaMateria mp = new VistaMateria();
 //        ControladorMp con = new ControladorMp(mp);
@@ -60,21 +60,21 @@ public class Index {
 //        
 //        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//        VistaLogin log = new VistaLogin();
-//        ControladorLogin con = new ControladorLogin(log);
-//        log.setVisible(true);
-//        log.setSize(850,600);
-//        log.setLocation(300, 10);
+        VistaLogin log = new VistaLogin();
+        ControladorLogin con = new ControladorLogin(log);
+        log.setVisible(true);
+        log.setSize(850,600);
+        log.setLocation(300, 10);
+        
+        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+//        VistaRopaVenta ropv = new VistaRopaVenta();
+//        ControladorRopaVenta con = new ControladorRopaVenta(ropv);
+//        ropv.setVisible(true);
+//        ropv.setSize(850,600);
+//        ropv.setLocation(300, 10);
 //        
-//        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        VistaRopaVenta ropv = new VistaRopaVenta();
-        ControladorRopaVenta con = new ControladorRopaVenta(ropv);
-        ropv.setVisible(true);
-        ropv.setSize(850,600);
-        ropv.setLocation(300, 10);
-        
-        ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }

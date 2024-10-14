@@ -19,21 +19,25 @@ public class LoginDao {
     Connection conex;
     PreparedStatement ps;
     ResultSet rs;
+  
     
     
     public Login log(String correo,String contrasena){
-        Login lg=new Login();
-        String sql="select * from usuarios WHERE usuario_email=? AND usuario_contrasena=?";
+        Login lg=null;
+        String sql="select usuario_email, usuario_contrasena,rol from usuarios WHERE usuario_email=? AND usuario_contrasena=?";
+        
          try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
             ps.setString(1, correo);
             ps.setString(2, contrasena);
+       
             rs=ps.executeQuery();
            if(rs.next()){
-                
-                lg.setCorreo(rs.getString(1));
-                lg.setContrasena(rs.getString(2));
+                lg=new Login();
+                lg.setCorreo(rs.getString("usuario_email"));
+                lg.setContrasena(rs.getString("usuario_contrasena"));
+                lg.setRol(rs.getString("rol"));
                 
         
             }
@@ -49,6 +53,10 @@ public class LoginDao {
                 JOptionPane.showMessageDialog(null, sql.toString());
             }
         }
+        
         return lg;
     }
+   
+  
+    
 }

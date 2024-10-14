@@ -57,6 +57,7 @@ public class VistaRopaVenta extends javax.swing.JFrame {
         mitabla = new javax.swing.JTable();
         tcategoria = new javax.swing.JComboBox<>();
         enviar = new javax.swing.JButton();
+        lusu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,7 +191,6 @@ public class VistaRopaVenta extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(enviar)
                         .addGap(10, 10, 10)))
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1)
                 .addGap(18, 18, 18))
         );
@@ -250,6 +250,9 @@ public class VistaRopaVenta extends javax.swing.JFrame {
         jTabbedPane1.addTab("tab2", jPanel5);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 810, 480));
+
+        lusu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel1.add(lusu, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 600, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 590));
 
@@ -313,6 +316,7 @@ public class VistaRopaVenta extends javax.swing.JFrame {
     private javax.swing.JLabel lnombre;
     private javax.swing.JLabel lprecio;
     private javax.swing.JLabel lstock;
+    public javax.swing.JLabel lusu;
     public javax.swing.JTable mitabla;
     public javax.swing.JComboBox<String> tcategoria;
     public javax.swing.JTextField tcolor;

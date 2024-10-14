@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,6 +41,7 @@ public class UsuariosDao implements Crud<Usuarios>{
                 u.setUsuario_email(rs.getString(5));
                 u.setUsuario_contraseña(rs.getString(6));
                 u.setUsuario_telefono(rs.getInt(7));
+                u.setRol(rs.getString(8));
                 
                 
                 datos.add(u);
@@ -62,7 +64,7 @@ public class UsuariosDao implements Crud<Usuarios>{
     @Override
     public int setAgregar(Usuarios us){
        int r;
-        String sql="INSERT INTO usuarios VALUES(?,?,?,?,?,?,?)";
+        String sql="INSERT INTO usuarios VALUES(?,?,?,?,?,?,?,?)";
         
         try{
             conex=conectar.getConnection();
@@ -75,6 +77,7 @@ public class UsuariosDao implements Crud<Usuarios>{
             ps.setString(5, us.getUsuario_email());
             ps.setString(6, us.getUsuario_contraseña());
             ps.setInt(7, us.getUsuario_telefono());
+            ps.setString(8, us.getRol());
             
             ps.executeUpdate();
             return 1;
@@ -94,7 +97,7 @@ public class UsuariosDao implements Crud<Usuarios>{
     }
     @Override
     public int setActualizar(Usuarios us){
-        String sql="UPDATE usuarios SET persona_nombre=?, persona_apellido=?, usuario_email=?, usuario_contrasena=?,usuario_telefono=? WHERE persona_id="+us.getPersona_id();
+        String sql="UPDATE usuarios SET persona_nombre=?, persona_apellido=?, usuario_email=?, usuario_contrasena=?,usuario_telefono=?, rol=? WHERE persona_id="+us.getPersona_id();
         
         try{
             conex=conectar.getConnection();
@@ -107,6 +110,7 @@ public class UsuariosDao implements Crud<Usuarios>{
             ps.setString(3, us.getUsuario_email());
             ps.setString(4, us.getUsuario_contraseña());
             ps.setInt(5, us.getUsuario_telefono());
+            ps.setString(6, us.getRol());
             
             ps.executeUpdate();
             return 1;
@@ -141,6 +145,29 @@ public class UsuariosDao implements Crud<Usuarios>{
                 }   
             }catch(SQLException sqle){
                 JOptionPane.showMessageDialog(null, sqle.toString());
+            }
+        }
+    }
+      public void listaRol(JComboBox trol){
+        
+        String sql= "SELECT rol_nombre FROM rol";
+        try{
+            conex=(com.mysql.jdbc.Connection) conectar.getConnection();
+            ps=(com.mysql.jdbc.PreparedStatement) conex.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                trol.addItem(rs.getString(1));
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+                
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sql.toString());
             }
         }
     }

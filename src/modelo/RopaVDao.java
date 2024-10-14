@@ -23,7 +23,7 @@ public class RopaVDao implements Crud<RopaVenta>{
     PreparedStatement ps;
     ResultSet rs;
     
-    
+
     
     @Override
     public List listar(){
