@@ -38,9 +38,13 @@ public class ControladorRopaVenta implements ActionListener {
         this.vista5.eliminar.addActionListener( this);
         this.vista5.enviar.addActionListener( this);
         da5.listaCategoria(this.vista5.tcategoria);
-        dal.getUsu();
-        this.vista5.lusu.setText("Bienvenido "+dal.getUsu());
+        
+
     }
+
+    public ControladorRopaVenta() {
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==vista5.buscar){

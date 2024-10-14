@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -128,6 +129,29 @@ public class MateriaDao implements Crud<MateriaPrima>{
                 }   
             }catch(SQLException sqle){
                 JOptionPane.showMessageDialog(null, sqle.toString());
+            }
+        }
+    }
+    public void listaInsumos(JComboBox jinsumo){
+        
+        String sql= "SELECT materia_nombre FROM materia_prima";
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                jinsumo.addItem(rs.getString(1));
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+                
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sql.toString());
             }
         }
     }

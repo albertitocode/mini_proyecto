@@ -28,6 +28,11 @@ public class ControladorMp implements ActionListener {
     public VistaMateria vista4 = new VistaMateria();
     DefaultTableModel modelito4=new DefaultTableModel();
 
+    public ControladorMp() {
+    }
+    
+    
+    
     public ControladorMp(VistaMateria vism) {
         this.vista4=vism;
         this.vista4.buscar.addActionListener(this);

@@ -32,12 +32,13 @@ public class VistaTecnico extends javax.swing.JFrame {
         linsumo = new javax.swing.JLabel();
         jinsumo = new javax.swing.JComboBox<>();
         jstock = new javax.swing.JLabel();
-        tstock = new javax.swing.JComboBox<>();
         enviar = new javax.swing.JButton();
         jtareas = new javax.swing.JLabel();
         tareas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         mitabla = new javax.swing.JTable();
+        jSpinner = new javax.swing.JSpinner();
+        tunidades = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,11 +63,13 @@ public class VistaTecnico extends javax.swing.JFrame {
 
         linsumo.setText("Que insumo piensa usar para esta reparacion?");
 
-        jinsumo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jinsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jinsumoActionPerformed(evt);
+            }
+        });
 
         jstock.setText("Cuantas unidades necesita?");
-
-        tstock.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         enviar.setText("Enviar");
 
@@ -74,18 +77,19 @@ public class VistaTecnico extends javax.swing.JFrame {
 
         tareas.setText("Ir");
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
         mitabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "NOMBRE", "MARCA", "DESCRIPCION", "COLOR", "CATEGORIA", "ESTADO", "DAÑO"
             }
         ));
         jScrollPane1.setViewportView(mitabla);
+
+        jSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 0, 1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,10 +108,15 @@ public class VistaTecnico extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jstock)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tstock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tunidades, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(linsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jinsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jinsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jtareas, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -129,7 +138,8 @@ public class VistaTecnico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jstock)
-                    .addComponent(tstock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tunidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(enviar)
                 .addGap(36, 36, 36)
@@ -148,6 +158,10 @@ public class VistaTecnico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jinsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jinsumoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jinsumoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,12 +204,13 @@ public class VistaTecnico extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JSpinner jSpinner;
     public javax.swing.JComboBox<String> jinsumo;
     private javax.swing.JLabel jstock;
     private javax.swing.JLabel jtareas;
     private javax.swing.JLabel linsumo;
     public javax.swing.JTable mitabla;
     public javax.swing.JButton tareas;
-    public javax.swing.JComboBox<String> tstock;
+    public javax.swing.JTextField tunidades;
     // End of variables declaration//GEN-END:variables
 }
