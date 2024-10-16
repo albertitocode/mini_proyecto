@@ -4,7 +4,7 @@
  */
 package controlador;
 
-import static controlador.ControladorRopaClinica.id_static;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -128,8 +128,8 @@ public class ControladorRopaVenta implements ActionListener {
     
         if(ae.getSource()==vista5.eliminar){
             int fila = vista5.mitabla.getSelectedRow();
-            if(!vista5.tid.getText().isBlank()){
-                int rpv_id=Integer.parseInt(vista5.tid.getText().toString());
+            if(!vista5.tidventa.getText().isBlank()){
+                int rpv_id=Integer.parseInt(vista5.tidventa.getText().toString());
                 setEliminar(rpv_id);
                 limpiarTabla();
                 getListar(vista5.mitabla);
@@ -235,8 +235,8 @@ public class ControladorRopaVenta implements ActionListener {
        rpv.setRp_categoria(rp_categoria);
        rpv.setRpv_precio(rpv_precio);
       rpv.setRpv_stock(rpv_stock);
-       
-       resultado=da5.setActualizar(rpv);
+      int cate=da5.idcategoria(rp_categoria);
+      resultado=da5.setActualizarr(rpv,cate);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vista5,"Se actualizó correctamente");

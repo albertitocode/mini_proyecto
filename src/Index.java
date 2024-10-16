@@ -90,7 +90,7 @@ public class Index {
 
 //        VistaRopaClinica ropc = new VistaRopaClinica();
 //        ControladorRopaClinica con = new ControladorRopaClinica(ropc);
-//        ropc.setVisible(true);2
+//        ropc.setVisible(true);
 //        ropc.setSize(850,600);
 //        ropc.setLocation(300, 10);
 //        

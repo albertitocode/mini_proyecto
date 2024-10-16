@@ -100,6 +100,53 @@ public class RopaCDao implements Crud<RopaClinica>{
                 }
         }
     }
+    public int setAgregarr(RopaClinica rp, int cat,int esta,int usus){
+//       int r;
+        String sql="INSERT INTO ropa_venta VALUES(?,?,?,?,?,?,?,?,?,?)";
+        
+        try{
+            conex=(Connection) conectar.getConnection();
+             if (conex == null) {
+            JOptionPane.showMessageDialog(null, "Error: Conexión nula");
+            return 0;
+        }
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            
+            ps.setInt(1,rp.getRp_id());
+            ps.setInt(2,rp.getRpc_id());
+            ps.setString(3, rp.getRp_nombre());
+            ps.setString(4, rp.getRp_marca());
+            ps.setString(5, rp.getRp_descripcion());
+            ps.setString(6, rp.getRp_color());
+            ps.setInt(7, cat);
+            ps.setInt(8,esta);
+            ps.setString(9, rp.getRpc_dano());
+            ps.setInt(10, usus);
+            
+            ps.executeUpdate();
+            return 1;
+//            if (ps.executeUpdate() > 0) {
+//            return 1; // Inserción exitosa
+//        } else {
+//            JOptionPane.showMessageDialog(null,"No se insertaron filas.");
+//            return 0; // No se insertó nada
+//        }
+
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.toString(),"Error de Insercion "+e.getMessage(),JOptionPane.ERROR_MESSAGE);
+            return 0;
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null,"sql insercion"+sqle.toString());
+                }
+        }
+    }
     @Override
     public int setActualizar(RopaClinica rpc){
         String sql="UPDATE ropa_clinica SET rp_nombre=?,rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpc_estado=?,rpc_dano=?, rpc_usuario WHERE rpc_id="+rpc.getRpc_id();
@@ -155,5 +202,97 @@ public class RopaCDao implements Crud<RopaClinica>{
             }
         }
     }
-
+        public int idcategoria(String nombre1){
+        
+          String sql= "SELECT categoria_id FROM categoria WHERE categoria_nombre=?";
+          int id=0;
+          
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            ps.setString(1, nombre1);
+            rs=ps.executeQuery();
+           
+            if(rs.next()){
+                
+                id=rs.getInt(1);
+                
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+                
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sql.toString());
+            }
+        }
+      return id;
+    }
+      public int idestado(String nombre2){
+        
+          String sql= "SELECT estado_id FROM categoria WHERE estado_nombre=?";
+          int id=0;
+          
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            ps.setString(1, nombre2);
+            rs=ps.executeQuery();
+           
+            if(rs.next()){
+                
+                id=rs.getInt(1);
+                
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+                
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sql.toString());
+            }
+        }
+      return id;
+    }
+        public int idUsuario(String nombre3){
+        
+          String sql= "SELECT usuario_id FROM usuarios WHERE persona_nombre=?";
+          int id=0;
+          
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            ps.setString(1, nombre3);
+            rs=ps.executeQuery();
+           
+            if(rs.next()){
+                
+                id=rs.getInt(1);
+                
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+                
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sql.toString());
+            }
+        }
+      return id;
+    }
 }

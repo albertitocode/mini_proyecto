@@ -148,9 +148,8 @@ public class RopaVDao implements Crud<RopaVenta>{
                 JOptionPane.showMessageDialog(null,"sql de insercion "+sqle.toString());
                 }
         }
-    }
-    @Override
-    public int setActualizar(RopaVenta rp){
+    }  
+    public int setActualizarr(RopaVenta rp,int cate){
         String sql="UPDATE ropa_venta SET rp_nombre=?,rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpv_precio=?,rpv_stock=? WHERE rpv_id="+rp.getRpv_id();
         
         try{
@@ -161,7 +160,7 @@ public class RopaVDao implements Crud<RopaVenta>{
             ps.setString(2, rp.getRp_marca());
             ps.setString(3, rp.getRp_descripcion());
             ps.setString(4,rp.getRp_color());
-            ps.setString(5,rp.getRp_categoria());
+            ps.setInt(5,cate);
             ps.setInt(6, rp.getRpv_precio());
             ps.setInt(7,rp.getRpv_stock());
             
@@ -182,62 +181,23 @@ public class RopaVDao implements Crud<RopaVenta>{
                 }
         }
     }
-     @Override
-    public int setEliminar(int rpv_id){
-        String sql= "DELETE FROM ropa_venta WHERE rpv_id="+rpv_id;
-        try{
-            conex=(Connection) conectar.getConnection();
-            ps=(PreparedStatement) conex.prepareStatement(sql);
-            ps.executeUpdate();
-            return 1;
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.toString(),"Error de eliminacion"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
-            return 0;
-        }finally{
-            try{
-                if(conex!=null){
-                    conex.close();
-                }   
-            }catch(SQLException sqle){
-                JOptionPane.showMessageDialog(null, sqle.toString());
-            }
-        }
+    @Override
+    public int setActualizar(RopaVenta rp){
+        return 1;
     }
-//    
-//    public String listaCategoria(Categoria tcategoria){
-//        
-//        String sql= "SELECT categoria_nombre FROM categoria";
-//        try{
-//            conex=(Connection) conectar.getConnection();
-//            ps=(PreparedStatement) conex.prepareStatement(sql);
-//            rs=ps.executeQuery();
-//            while(rs.next()){
-//                tcategoria.setCategoria_nombre(rs.getString(1));
-//                
-//            }
-//            
-//        }catch(Exception e){
-//            JOptionPane.showMessageDialog(null,e.toString());
-//        }finally{
-//            try{
-//                if(conex!=null){
-//                    conex.close();
-//                }
-//                
-//            }catch(SQLException sqle){
-//                JOptionPane.showMessageDialog(null, sql.toString());
-//            }
-//        }
-//      return tcategoria.getCategoria_nombre().toString();
-//    }
     public int idcategoria(String nombre){
-          String sql= "SELECT categoria_id FROM categoria WHERE categoria_nombre="+nombre;
+        
+          String sql= "SELECT categoria_id FROM categoria WHERE categoria_nombre=?";
           int id=0;
+          
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
+            ps.setString(1, nombre);
             rs=ps.executeQuery();
+           
             if(rs.next()){
+                
                 id=rs.getInt(1);
                 
             }
@@ -255,6 +215,28 @@ public class RopaVDao implements Crud<RopaVenta>{
             }
         }
       return id;
+    }
+
+    @Override
+    public int setEliminar(int rpv_id) {
+       String sql= "DELETE FROM ropa_venta WHERE rpv_id="+rpv_id;
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            ps.executeUpdate();
+            return 1;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.toString(),"Error de eliminacion"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
+            return 0;
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }   
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sqle.toString());
+            }
+        }
     }
   }
   

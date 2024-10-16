@@ -6,14 +6,17 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.Categoria;
 import modelo.RopaCDao;
 import modelo.RopaClinica;
 import modelo.RopaVDao;
 import modelo.RopaVenta;
+import modelo.Usuarios;
 import vista.VistaRopaClinica;
 import vista.VistaRopaVenta;
 
@@ -29,7 +32,8 @@ public class ControladorRopaClinica implements ActionListener {
     DefaultTableModel modelito5=new DefaultTableModel();
 
     
-    public static String id_static;
+    public ControladorCategoria contcategoria= new ControladorCategoria();
+    public ControladorUs contusu= new ControladorUs();
     
     public ControladorRopaClinica(VistaRopaClinica visclinica) {
         this.vistaclinica=visclinica;
@@ -37,14 +41,30 @@ public class ControladorRopaClinica implements ActionListener {
         this.vistaclinica.insertar.addActionListener(this);
         this.vistaclinica.actualizar.addActionListener(this);
         this.vistaclinica.elminar.addActionListener(this);
-        this.daClinica.listaCategoria(this.vistaclinica.ccategoria);
-        this.daClinica.listaEstado(this.vistaclinica.cestado);
-        this.daClinica.listaUsuario(this.vistaclinica.cusuario);
+        categorias();
+        usuarios();
     }
 
     public ControladorRopaClinica() {
     }
-    
+    public void categorias(){
+        ArrayList<Categoria> cate = (ArrayList<Categoria>) this.contcategoria.da3.listar();
+        for (Categoria categoria : cate) {
+             vistaclinica.ccategoria.addItem(categoria.toString());
+        }
+    } 
+    public void estados(){///ARREGLAR
+        ArrayList<Estado> est = (ArrayList<Estado>) this.contcategoria.da3.listar();
+        for (Categoria categoria : cate) {
+             vistaclinica.ccategoria.addItem(categoria.toString());
+        }
+    } 
+    public void usuarios(){
+        ArrayList<Usuarios> usu = (ArrayList<Usuarios>) this.contusu.dao1.listar();
+        for (Usuarios usuario : usu) {
+             vistaclinica.cusuario.addItem(usuario.toString());
+        }
+    } 
     @Override
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==vistaclinica.buscar){
@@ -167,7 +187,6 @@ public class ControladorRopaClinica implements ActionListener {
        String rp_descripcion=vistaclinica.tdescripcion.getText().toString();
        String rp_color=vistaclinica.tcolor.getText().toString();
        String rp_categoria=vistaclinica.ccategoria.getSelectedItem().toString();
-       id_static = daClinica.obtenerIdPorNombre(rp_categoria);
        String rpc_estado=vistaclinica.cestado.getSelectedItem().toString();
        String rpc_dano=vistaclinica.tdano.getText().toString();
        String rpc_usuario=vistaclinica.cusuario.getSelectedItem().toString();
@@ -178,14 +197,15 @@ public class ControladorRopaClinica implements ActionListener {
        rpv.setRp_marca(rp_marca);
        rpv.setRp_descripcion(rp_descripcion);
        rpv.setRp_color(rp_color);
-       rpv.setRp_categoria(id_static);
+       rpv.setRp_categoria(rp_categoria);
        rpv.setRpc_estado(rpc_estado);
        rpv.setRpc_dano(rpc_dano);
        rpv.setRpc_usuario(rpc_usuario);
        
-      
-       
-       resultado=daClinica.setAgregar(rpv);
+      int cate=daClinica.idcategoria(rp_categoria);
+      int est=daClinica.idestado(rpc_estado);
+      int usu=daClinica.idUsuario(rpc_usuario);
+       resultado=daClinica.setAgregarr(rpv,cate,est,usu);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vistaclinica,"Se ingreso correctamente");

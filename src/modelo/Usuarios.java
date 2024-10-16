@@ -96,5 +96,8 @@ public class Usuarios extends Persona {
     public void setPersona_apellido(String persona_apellido) {
         this.persona_apellido = persona_apellido;
     }
-    
+    @Override
+    public String toString() {
+        return persona_nombre; // Esto se mostrará en el JComboBox
+    }
 }
