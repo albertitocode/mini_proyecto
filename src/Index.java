@@ -3,6 +3,7 @@ import controlador.ControladorCategoria;
 import controlador.ControladorLogin;
 import controlador.ControladorMp;
 import controlador.ControladorRol;
+import controlador.ControladorRopaClinica;
 import controlador.ControladorRopaVenta;
 import controlador.ControladorTecnico;
 import controlador.ControladorUs;
@@ -11,6 +12,7 @@ import vista.VistaCategoria;
 import vista.VistaLogin;
 import vista.VistaMateria;
 import vista.VistaRol;
+import vista.VistaRopaClinica;
 import vista.VistaRopaVenta;
 import vista.VistaTecnico;
 import vista.VistaUsuarios;
@@ -70,20 +72,28 @@ public class Index {
 //        
 //        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-//        VistaRopaVenta ropv = new VistaRopaVenta();
-//        ControladorRopaVenta con = new ControladorRopaVenta(ropv);
-//        ropv.setVisible(true);
-//        ropv.setSize(850,600);
-//        ropv.setLocation(300, 10);
-//        
-//        ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
-       VistaTecnico vistaT = new VistaTecnico();
-        ControladorTecnico con = new ControladorTecnico(vistaT);
-        vistaT.setVisible(true);
-        vistaT.setSize(850,600);
-        vistaT.setLocation(300, 10);
+        VistaRopaVenta ropv = new VistaRopaVenta();
+        ControladorRopaVenta con = new ControladorRopaVenta(ropv);
+        ropv.setVisible(true);
+        ropv.setSize(850,600);
+        ropv.setLocation(300, 10);
         
-        vistaT.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
+//       VistaTecnico vistaT = new VistaTecnico();
+//        ControladorTecnico con = new ControladorTecnico(vistaT);
+//        vistaT.setVisible(true);
+//        vistaT.setSize(850,600);
+//        vistaT.setLocation(300, 10);
+//        
+//        vistaT.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//        VistaRopaClinica ropc = new VistaRopaClinica();
+//        ControladorRopaClinica con = new ControladorRopaClinica(ropc);
+//        ropc.setVisible(true);2
+//        ropc.setSize(850,600);
+//        ropc.setLocation(300, 10);
+//        
+//        ropc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 }

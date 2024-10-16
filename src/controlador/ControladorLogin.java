@@ -49,12 +49,13 @@ public class ControladorLogin implements ActionListener {
 
             if(lg.getCorreo()!=null && lg.getContrasena()!=null){
                 String rol=lg.getRol();
-                JOptionPane.showMessageDialog(vista3,"funca rol: "+rol);  
+//                JOptionPane.showMessageDialog(vista3,"funca rol: "+rol);  
 
                 if(rol.equals("Admin")){
                    JOptionPane.showMessageDialog(vista3,"Funciona menor");
                    VistaPrincipal prin=new VistaPrincipal();
                    prin.setVisible(true);
+                   
                 }else if(rol.equals("Vendedor")){
 //                    JOptionPane.showMessageDialog(vista3,"No funca"); 
                     VistaRopaVenta vista=new VistaRopaVenta();

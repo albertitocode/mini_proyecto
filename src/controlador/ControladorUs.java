@@ -35,6 +35,10 @@ public class ControladorUs implements ActionListener{
         this.vista1.enviar.setEnabled(flag);
         dao1.listaRol(this.vista1.trol);
     }
+
+    public ControladorUs() {
+    }
+    
     
     @Override
     public void actionPerformed(ActionEvent ae){

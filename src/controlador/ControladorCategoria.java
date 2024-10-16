@@ -27,6 +27,10 @@ public class ControladorCategoria implements ActionListener {
     public VistaCategoria vista3 = new VistaCategoria();
     DefaultTableModel modelito2=new DefaultTableModel();
 
+    public ControladorCategoria() {
+    }
+
+    
     public ControladorCategoria(VistaCategoria visc) {
         this.vista3=visc;
         this.vista3.buscar.addActionListener(this);

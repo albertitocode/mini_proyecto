@@ -4,17 +4,22 @@
  */
 package controlador;
 
+import static controlador.ControladorRopaClinica.id_static;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.Categoria;
 
 
 import modelo.RopaVDao;
 import modelo.RopaVenta;
 import modelo.LoginDao;
+import modelo.Rol;
 import vista.VistaRopaVenta;
 
 /**
@@ -27,8 +32,10 @@ public class ControladorRopaVenta implements ActionListener {
     public RopaVenta rpv= new RopaVenta();
     public VistaRopaVenta vista5 = new VistaRopaVenta();
     DefaultTableModel modelito5=new DefaultTableModel();
-    public String usu;
-    public LoginDao dal=new LoginDao();
+    public Categoria cat= new Categoria();
+//    public static String id_static1;
+    public ControladorCategoria contcategoria= new ControladorCategoria();
+    
 
     public ControladorRopaVenta(VistaRopaVenta visrpv) {
         this.vista5=visrpv;
@@ -37,14 +44,20 @@ public class ControladorRopaVenta implements ActionListener {
         this.vista5.actualizar.addActionListener(this);
         this.vista5.eliminar.addActionListener( this);
         this.vista5.enviar.addActionListener( this);
-        da5.listaCategoria(this.vista5.tcategoria);
+//        da5.listaCategoria(this.vista5.tcategoria);
         
+        categorias();
 
     }
 
     public ControladorRopaVenta() {
     }
-    
+     public void categorias(){
+        ArrayList<Categoria> cate = (ArrayList<Categoria>) this.contcategoria.da3.listar();
+        for (Categoria categoria : cate) {
+             vista5.tcategoria.addItem(categoria.toString());
+        }
+    } 
     @Override
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==vista5.buscar){
@@ -62,7 +75,12 @@ public class ControladorRopaVenta implements ActionListener {
              !vista5.tcategoria.getSelectedItem().toString().isBlank()&&
              !vista5.tprecio.getText().toString().isBlank()&&
              !vista5.tstock.getText().toString().isBlank())
+             
+//            
+            
           {
+              
+             
               setAgregar();
               nuevo();
               limpiarTabla();
@@ -164,9 +182,13 @@ public class ControladorRopaVenta implements ActionListener {
        String rp_descripcion=vista5.tdescripcion.getText().toString();
        String rp_color=vista5.tcolor.getText().toString();
        String rp_categoria=vista5.tcategoria.getSelectedItem().toString();
+       
        int rpv_precio=Integer.parseInt(vista5.tprecio.getText().toString());
        int rpv_stock=Integer.parseInt(vista5.tstock.getText().toString());
-       
+//       int cate=-1;
+//       if(vista5.tcategoria.getSelectedItem()== this.da5.listaCategoria(cat)){
+//           cate=this.cat.getCategoria_id();
+//       }
        rpv.setRp_id(rp_id);
        rpv.setRpv_id(rpv_id);
        rpv.setRp_nombre(rp_nombre);
@@ -177,8 +199,10 @@ public class ControladorRopaVenta implements ActionListener {
        rpv.setRpv_precio(rpv_precio);
        rpv.setRpv_stock(rpv_stock);
       
+       int cate=da5.idcategoria(rp_categoria);
        
-       resultado=da5.setAgregar(rpv);
+       
+       resultado=da5.setAgregarr(rpv,cate);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vista5,"Se ingreso correctamente");
@@ -198,6 +222,7 @@ public class ControladorRopaVenta implements ActionListener {
        String rp_descripcion=vista5.tdescripcion.getText().toString();
        String rp_color=vista5.tcolor.getText().toString();
        String rp_categoria=vista5.tcategoria.getSelectedItem().toString();
+       
        int rpv_precio=Integer.parseInt(vista5.tprecio.getText().toString());
        int rpv_stock=Integer.parseInt(vista5.tstock.getText().toString());
        
@@ -254,6 +279,7 @@ public class ControladorRopaVenta implements ActionListener {
             i=i-1;
         }
     }
+   
     
 }
 

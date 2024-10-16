@@ -6,29 +6,31 @@ package modelo;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import controlador.ControladorRopaVenta;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
-import javax.swing.JComboBox;
+
 
 /**
  *
  * @author hgust
  */
+
 public class RopaVDao implements Crud<RopaVenta>{
     Conexion conectar= new Conexion();
     Connection conex;
     PreparedStatement ps;
     ResultSet rs;
-    
+ 
 
-    
+   
     @Override
     public List listar(){
         List<RopaVenta> datos=new ArrayList<RopaVenta>();
-        String sql="select * from ropa_venta";
+        String sql="SELECT rpv.rp_id,rpv.rpv_id,rpv.rp_nombre,rpv.rp_marca,rpv.rp_descripcion,rpv.rp_color,c.categoria_nombre,rpv.rpv_precio,rpv.rpv_stock AS categoria FROM ropa_venta rpv JOIN categoria c ON rpv.rp_categoria = c.categoria_id";
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
@@ -49,7 +51,7 @@ public class RopaVDao implements Crud<RopaVenta>{
                 datos.add(rpv);
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.toString());
+            JOptionPane.showMessageDialog(null,"error al listar "+e.toString());
         }finally{
             try{
                 if(conex!=null){
@@ -57,10 +59,59 @@ public class RopaVDao implements Crud<RopaVenta>{
                 }
                 
             }catch(SQLException sqle){
-                JOptionPane.showMessageDialog(null, sql.toString());
+                JOptionPane.showMessageDialog(null, "sql listar "+sql.toString());
             }
         }
         return datos;
+    }
+    
+    
+    public int setAgregarr(RopaVenta rp, int cat){
+//       int r;
+        String sql="INSERT INTO ropa_venta VALUES(?,?,?,?,?,?,?,?,?)";
+        
+        try{
+            conex=(Connection) conectar.getConnection();
+             if (conex == null) {
+            JOptionPane.showMessageDialog(null, "Error: Conexión nula");
+            return 0;
+        }
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            
+            ps.setInt(1,rp.getRp_id());
+            ps.setInt(2,rp.getRpv_id());
+            ps.setString(3, rp.getRp_nombre());
+            ps.setString(4, rp.getRp_marca());
+            ps.setString(5, rp.getRp_descripcion());
+            ps.setString(6, rp.getRp_color());
+            ps.setInt(7, cat);
+            ps.setInt(8, rp.getRpv_precio());
+            ps.setInt(9, rp.getRpv_stock());
+            
+            
+            ps.executeUpdate();
+            return 1;
+//            if (ps.executeUpdate() > 0) {
+//            return 1; // Inserción exitosa
+//        } else {
+//            JOptionPane.showMessageDialog(null,"No se insertaron filas.");
+//            return 0; // No se insertó nada
+//        }
+
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.toString(),"Error de Insercion "+e.getMessage(),JOptionPane.ERROR_MESSAGE);
+            return 0;
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null,"sql insercion"+sqle.toString());
+                }
+        }
     }
     @Override
     public int setAgregar(RopaVenta rp){
@@ -86,7 +137,7 @@ public class RopaVDao implements Crud<RopaVenta>{
             return 1;
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.toString(),"Error de Insercion"+e.getMessage(),JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, e.toString(),"Error de Insercion "+e.getMessage(),JOptionPane.ERROR_MESSAGE);
             return 0;
         }finally{
             try{
@@ -94,13 +145,13 @@ public class RopaVDao implements Crud<RopaVenta>{
                     conex.close();
                 }
             }catch(SQLException sqle){
-                JOptionPane.showMessageDialog(null,sqle.toString());
+                JOptionPane.showMessageDialog(null,"sql de insercion "+sqle.toString());
                 }
         }
     }
     @Override
     public int setActualizar(RopaVenta rp){
-        String sql="UPDATE ropa_venta SET rp_nombre=?,  rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpv_precio=?,rpv_stock=? WHERE rpv_id="+rp.getRpv_id();
+        String sql="UPDATE ropa_venta SET rp_nombre=?,rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpv_precio=?,rpv_stock=? WHERE rpv_id="+rp.getRpv_id();
         
         try{
             conex=(Connection) conectar.getConnection();
@@ -152,17 +203,45 @@ public class RopaVDao implements Crud<RopaVenta>{
             }
         }
     }
-    
-    public void listaCategoria(JComboBox tcategoria){
-        
-        String sql= "SELECT categoria_nombre FROM categoria";
+//    
+//    public String listaCategoria(Categoria tcategoria){
+//        
+//        String sql= "SELECT categoria_nombre FROM categoria";
+//        try{
+//            conex=(Connection) conectar.getConnection();
+//            ps=(PreparedStatement) conex.prepareStatement(sql);
+//            rs=ps.executeQuery();
+//            while(rs.next()){
+//                tcategoria.setCategoria_nombre(rs.getString(1));
+//                
+//            }
+//            
+//        }catch(Exception e){
+//            JOptionPane.showMessageDialog(null,e.toString());
+//        }finally{
+//            try{
+//                if(conex!=null){
+//                    conex.close();
+//                }
+//                
+//            }catch(SQLException sqle){
+//                JOptionPane.showMessageDialog(null, sql.toString());
+//            }
+//        }
+//      return tcategoria.getCategoria_nombre().toString();
+//    }
+    public int idcategoria(String nombre){
+          String sql= "SELECT categoria_id FROM categoria WHERE categoria_nombre="+nombre;
+          int id=0;
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
             rs=ps.executeQuery();
-            while(rs.next()){
-                tcategoria.addItem(rs.getString(1));
+            if(rs.next()){
+                id=rs.getInt(1);
+                
             }
+            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.toString());
         }finally{
@@ -175,5 +254,7 @@ public class RopaVDao implements Crud<RopaVenta>{
                 JOptionPane.showMessageDialog(null, sql.toString());
             }
         }
+      return id;
     }
-}
+  }
+  

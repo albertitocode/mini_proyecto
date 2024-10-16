@@ -21,13 +21,13 @@ public class TecnicoDao {
     PreparedStatement ps;
     ResultSet rs;
     
-     public MateriaPrima mate(JComboBox materia_nombre){
+     public MateriaPrima mate(String materia_nombre){
         String sql= "SELECT * FROM materia_prima WHERE materia_nombre=?" ;
         MateriaPrima mp=null;
          try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
-            ps.setString(1, (String) materia_nombre.getSelectedItem());
+            ps.setString(1,  materia_nombre);
             
        
             rs=ps.executeQuery();
@@ -54,4 +54,35 @@ public class TecnicoDao {
         
         return mp;
     }
+     public void modificar(MateriaPrima mp){
+         String sql= "UPDATE materia_prima SET  materia_stock=? WHERE materia_nombre=?";
+        
+         try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            
+            
+            ps.setInt(1,mp.getMateria_stock());
+            ps.setString(2, mp.getMateria_nombre());
+            
+            ps.executeUpdate();
+            
+            
+            
+//         return 1;
+          
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"dao 1"+e.toString());
+//         return 0;
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null,sqle.toString());
+                }
+        }
+    
+     }
 }

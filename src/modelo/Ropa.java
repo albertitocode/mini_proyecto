@@ -15,7 +15,6 @@ public class Ropa {
     String rp_descripcion;
     String rp_color;
     String rp_categoria;
-
     public Ropa(int rp_id, String rp_nombre, String rp_marca, String rp_descripcion, String rp_color, String rp_categoria) {
         this.rp_id = rp_id;
         this.rp_nombre = rp_nombre;

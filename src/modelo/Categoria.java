@@ -35,5 +35,8 @@ public class Categoria {
     public void setCategoria_nombre(String categoria_nombre) {
         this.categoria_nombre = categoria_nombre;
     }
-    
+    @Override
+    public String toString() {
+        return categoria_nombre; // Esto se mostrará en el JComboBox
+    }
 }
