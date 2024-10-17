@@ -24,7 +24,7 @@ public class LoginDao {
     
     public Login log(String correo,String contrasena){
         Login lg=null;
-        String sql="select usuario_email, usuario_contrasena,rol from usuarios WHERE usuario_email=? AND usuario_contrasena=?";
+        String sql="SELECT u.usuario_email, u.usuario_contrasena,r.rol_nombre FROM usuarios u JOIN rol r on u.rol_log=r.rol_id WHERE usuario_email=? AND usuario_contrasena=?";
         
          try{
             conex=(Connection) conectar.getConnection();
@@ -37,7 +37,7 @@ public class LoginDao {
                 lg=new Login();
                 lg.setCorreo(rs.getString("usuario_email"));
                 lg.setContrasena(rs.getString("usuario_contrasena"));
-                lg.setRol(rs.getString("rol"));
+                lg.setRol(rs.getString("rol_nombre"));
                 
         
             }

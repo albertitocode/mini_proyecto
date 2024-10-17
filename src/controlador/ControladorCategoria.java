@@ -7,13 +7,20 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Categoria;
 import modelo.CategoriaDao;
 import modelo.Rol;
+import vista.VistaAdmin;
 import vista.VistaCategoria;
+import vista.VistaClientes;
+import vista.VistaEstado;
+import vista.VistaLogin;
+import vista.VistaRol;
+import vista.VistaUsuarios;
 
 
 /**
@@ -39,6 +46,13 @@ public class ControladorCategoria implements ActionListener {
         this.vista3.eliminar.addActionListener(this);
         this.vista3.enviar.addActionListener(this);
         this.vista3.enviar.setEnabled(flag);
+        this.vista3.btncerrar.addActionListener(this);
+       this.vista3.btnclientes.addActionListener(this);
+        this.vista3.btnestados.addActionListener(this);
+        this.vista3.btnperfil.addActionListener(this);
+        this.vista3.btnroles.addActionListener(this);
+        this.vista3.btnusuarios.addActionListener(this);
+        this.vista3.btninicio.addActionListener(this);
     }
     @Override
     public void actionPerformed(ActionEvent ae){
@@ -101,6 +115,67 @@ public class ControladorCategoria implements ActionListener {
             vista3.tid.setEditable(true);
             
             
+        }
+          if(ae.getSource()==vista3.btninicio){
+            VistaAdmin visadmin = new VistaAdmin();
+                        ControladorAdmin coneadmin = new ControladorAdmin(visadmin);
+                        visadmin.setVisible(true);
+                        visadmin.setSize(850,600);
+                        visadmin.setLocation(300, 10);
+                        vista3.dispose();
+                        visadmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista3.btncerrar){
+            if (ae.getSource()==vista3.btncerrar){
+            VistaLogin log = new VistaLogin();
+            
+            ControladorLogin con = new ControladorLogin(log);
+            log.setVisible(true);
+            log.setSize(850, 600);
+            log.setLocation(300, 10);
+            vista3.dispose();
+            log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+    }
+         if(ae.getSource()==vista3.btnclientes){
+              VistaClientes vclientes = new VistaClientes();
+             ControladorClientes concli = new ControladorClientes(vclientes);
+             vclientes.setVisible(true);
+             vclientes.setSize(850, 600);
+             vclientes.setLocation(300, 10);
+             vista3.dispose();
+             vclientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista3.btnestados){
+            VistaEstado es = new VistaEstado();
+            ControladorEstado con = new ControladorEstado(es);
+            es.setVisible(true);
+            es.setSize(850, 600);
+            es.setLocation(300, 10);
+            vista3.dispose();
+            es.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista3.btnperfil){
+            JOptionPane.showMessageDialog(vista3,"Boton perfil en mantenimiento");
+        }
+        if(ae.getSource()==vista3.btnroles){
+             VistaRol ro = new VistaRol();
+        ControladorRol conrol = new ControladorRol(ro);
+        ro.setVisible(true);
+        ro.setSize(850,600);
+        ro.setLocation(300, 10);
+        vista3.dispose();
+        ro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista3.btnusuarios){
+              VistaUsuarios vis = new VistaUsuarios();
+            ControladorUs conusu = new ControladorUs(vis);
+            
+            vis.setVisible(true);
+            vis.setSize(850, 600);
+            vis.setLocation(300, 10);
+            vista3.dispose();
+            vis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
     }
     public void getListar(JTable tabla){

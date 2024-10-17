@@ -155,4 +155,63 @@ public class MateriaDao implements Crud<MateriaPrima>{
             }
         }
     }
+     public int setActualizarStock(){
+        String sql="UPDATE materia_prima SET materia_stock=(materia_stock+10) WHERE materia_stock<=5";
+        
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            
+            
+            
+            ps.executeUpdate();
+            
+            return 1;
+          
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        return 0;
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null,sqle.toString());
+                }
+        }
+    }
+    
+    public List getInsumos() {
+
+        List<MateriaPrima> datos=new ArrayList<MateriaPrima>();
+        String sql="SELECT*FROM materia_prima WHERE materia_stock<=5";
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                MateriaPrima m=new MateriaPrima();
+                m.setMateria_id(rs.getInt(1));
+                m.setMateria_nombre(rs.getString(2));
+                m.setMateria_stock(rs.getInt(3));
+                datos.add(m);
+                
+              
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+                
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sql.toString());
+            }
+        }
+        return datos;
+        
+    }
 }

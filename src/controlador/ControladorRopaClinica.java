@@ -8,15 +8,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Categoria;
+import modelo.Estado;
 import modelo.RopaCDao;
 import modelo.RopaClinica;
 import modelo.RopaVDao;
 import modelo.RopaVenta;
 import modelo.Usuarios;
+import vista.VistaLogin;
+import vista.VistaRopaClini;
 import vista.VistaRopaClinica;
 import vista.VistaRopaVenta;
 
@@ -34,6 +38,7 @@ public class ControladorRopaClinica implements ActionListener {
     
     public ControladorCategoria contcategoria= new ControladorCategoria();
     public ControladorUs contusu= new ControladorUs();
+    public ControladorEstado contest=new ControladorEstado();
     
     public ControladorRopaClinica(VistaRopaClinica visclinica) {
         this.vistaclinica=visclinica;
@@ -41,7 +46,11 @@ public class ControladorRopaClinica implements ActionListener {
         this.vistaclinica.insertar.addActionListener(this);
         this.vistaclinica.actualizar.addActionListener(this);
         this.vistaclinica.elminar.addActionListener(this);
+        this.vistaclinica.enviar.addActionListener(this);
+        this.vistaclinica.enviar.setEnabled(flag);
+        this.vistaclinica.btncerrar.addActionListener(this);
         categorias();
+        estados();
         usuarios();
     }
 
@@ -54,9 +63,9 @@ public class ControladorRopaClinica implements ActionListener {
         }
     } 
     public void estados(){///ARREGLAR
-        ArrayList<Estado> est = (ArrayList<Estado>) this.contcategoria.da3.listar();
-        for (Categoria categoria : cate) {
-             vistaclinica.ccategoria.addItem(categoria.toString());
+        ArrayList<Estado> est = (ArrayList<Estado>) this.contest.daestado.listar();
+        for (Estado estado : est) {
+             vistaclinica.cestado.addItem(estado.toString());
         }
     } 
     public void usuarios(){
@@ -133,8 +142,8 @@ public class ControladorRopaClinica implements ActionListener {
     
         if(ae.getSource()==vistaclinica.elminar){
             int fila = vistaclinica.mitabla.getSelectedRow();
-            if(!vistaclinica.tid.getText().isBlank()){
-                int rpc_id=Integer.parseInt(vistaclinica.tid.getText().toString());
+            if(!vistaclinica.idiclinica.getText().isBlank()){
+                int rpc_id=Integer.parseInt(vistaclinica.idiclinica.getText().toString());
                 setEliminar(rpc_id);
                 limpiarTabla();
                 getListar(vistaclinica.mitabla);
@@ -153,6 +162,18 @@ public class ControladorRopaClinica implements ActionListener {
             vistaclinica.idiclinica.setEditable(true);
             
             
+        }
+        if(ae.getSource()==vistaclinica.btncerrar){
+            if (ae.getSource()==vistaclinica.btncerrar){
+            VistaLogin log = new VistaLogin();
+            
+            ControladorLogin con = new ControladorLogin(log);
+            log.setVisible(true);
+            log.setSize(850, 600);
+            log.setLocation(300, 10);
+            vistaclinica.dispose();
+            log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
         }
     
     }
@@ -239,8 +260,10 @@ public class ControladorRopaClinica implements ActionListener {
        rpv.setRpc_estado(rpc_estado);
        rpv.setRpc_dano(rpc_dano);
        rpv.setRpc_usuario(rpc_usuario);
-       
-       resultado=daClinica.setActualizar(rpv);
+       int cate=daClinica.idcategoria(rp_categoria);
+       int est=daClinica.idestado(rpc_estado);
+       int usu=daClinica.idUsuario(rpc_usuario);
+       resultado=daClinica.setActualizarr(rpv,cate,est,usu);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vistaclinica,"Se actualizó correctamente");
@@ -262,7 +285,7 @@ public class ControladorRopaClinica implements ActionListener {
                 
     }
      public void nuevo(){
-      
+    
        vistaclinica.tid.setText("");
        vistaclinica.idiclinica.setText("");
        vistaclinica.tnombre.setText("");

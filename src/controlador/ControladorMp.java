@@ -7,12 +7,14 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.MateriaDao;
 import modelo.MateriaPrima;
 import modelo.Rol;
+import vista.VistaLogin;
 
 import vista.VistaMateria;
 
@@ -41,6 +43,7 @@ public class ControladorMp implements ActionListener {
         this.vista4.eliminar.addActionListener(this);
         this.vista4.enviar.addActionListener(this);
         this.vista4.enviar.setEnabled(flag);
+        this.vista4.btncerrar.addActionListener(this);
     }
      @Override
     public void actionPerformed(ActionEvent ae){
@@ -104,6 +107,18 @@ public class ControladorMp implements ActionListener {
             vista4.tid.setEditable(true);
             
             
+        }
+        if(ae.getSource()==vista4.btncerrar){
+            if (ae.getSource()==vista4.btncerrar){
+            VistaLogin log = new VistaLogin();
+            
+            ControladorLogin con = new ControladorLogin(log);
+            log.setVisible(true);
+            log.setSize(850, 600);
+            log.setLocation(300, 10);
+            vista4.dispose();
+            log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
         }
         
     }

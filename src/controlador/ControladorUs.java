@@ -7,11 +7,18 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Usuarios;
 import modelo.UsuariosDao;
+import vista.VistaAdmin;
+import vista.VistaCategoria;
+import vista.VistaClientes;
+import vista.VistaEstado;
+import vista.VistaLogin;
+import vista.VistaRol;
 import vista.VistaUsuarios;
 
 /**
@@ -34,6 +41,14 @@ public class ControladorUs implements ActionListener{
         this.vista1.enviar.addActionListener(this);
         this.vista1.enviar.setEnabled(flag);
         dao1.listaRol(this.vista1.trol);
+        this.vista1.btncerrar.addActionListener(this);
+        this.vista1.btncategorias.addActionListener(this);
+        this.vista1.btnclientes.addActionListener(this);
+        this.vista1.btnestados.addActionListener(this);
+        this.vista1.btnperfil.addActionListener(this);
+        this.vista1.btnroles.addActionListener(this);
+        this.vista1.btninicio.addActionListener(this);
+        
     }
 
     public ControladorUs() {
@@ -120,6 +135,66 @@ public class ControladorUs implements ActionListener{
             vista1.Tid.setEditable(true);
             vista1.Tid_usuario.setEditable(true);
             
+        }
+          if(ae.getSource()==vista1.btninicio){
+            VistaAdmin visadmin = new VistaAdmin();
+                        ControladorAdmin coneadmin = new ControladorAdmin(visadmin);
+                        visadmin.setVisible(true);
+                        visadmin.setSize(850,600);
+                        visadmin.setLocation(300, 10);
+                        vista1.dispose();
+                        visadmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+          if(ae.getSource()==vista1.btncategorias){
+             VistaCategoria ca = new VistaCategoria();
+        ControladorCategoria con = new ControladorCategoria(ca);
+        ca.setVisible(true);
+        ca.setSize(850,600);
+        ca.setLocation(300, 10);
+          vista1.dispose();
+        ca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista1.btnclientes){
+                  VistaClientes vclientes = new VistaClientes();
+        ControladorClientes concli = new ControladorClientes(vclientes);
+        vclientes.setVisible(true);
+        vclientes.setSize(850,600);
+        vclientes.setLocation(300, 10);
+        vista1.dispose();
+        vclientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista1.btnestados){
+            VistaEstado es = new VistaEstado();
+            ControladorEstado con = new ControladorEstado(es);
+            es.setVisible(true);
+            es.setSize(850, 600);
+            es.setLocation(300, 10);
+            vista1.dispose();
+            es.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista1.btnperfil){
+            JOptionPane.showMessageDialog(vista1,"Boton perfil en mantenimiento");
+        }
+        if(ae.getSource()==vista1.btnroles){
+             VistaRol ro = new VistaRol();
+        ControladorRol conrol = new ControladorRol(ro);
+        ro.setVisible(true);
+        ro.setSize(850,600);
+        ro.setLocation(300, 10);
+        vista1.dispose();
+        ro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+        if(ae.getSource()==vista1.btncerrar){
+            if (ae.getSource()==vista1.btncerrar){
+            VistaLogin log = new VistaLogin();
+            
+            ControladorLogin con = new ControladorLogin(log);
+            log.setVisible(true);
+            log.setSize(850, 600);
+            log.setLocation(300, 10);
+            vista1.dispose();
+            log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
         }
     }
     

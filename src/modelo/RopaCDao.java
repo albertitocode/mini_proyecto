@@ -28,7 +28,7 @@ public class RopaCDao implements Crud<RopaClinica>{
     @Override
     public List listar(){
         List<RopaClinica> datos=new ArrayList<RopaClinica>();
-        String sql="select * from ropa_clinica";
+        String sql="select rp.rp_id,rp.rpc_id,rp.rp_nombre,rp.rp_marca,rp.rp_descripcion,rp.rp_color,c.categoria_nombre,es.estado_nombre,rp.rpc_descripcion_dano,us.persona_nombre FROM ropa_clinica rp JOIN categoria c ON rp.rp_categoria=c.categoria_id JOIN estado_ropa es ON rp.rpc_estado=es.estado_id JOIN usuarios us ON rp.rpc_usuario=us.usuario_id";
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
@@ -102,7 +102,7 @@ public class RopaCDao implements Crud<RopaClinica>{
     }
     public int setAgregarr(RopaClinica rp, int cat,int esta,int usus){
 //       int r;
-        String sql="INSERT INTO ropa_venta VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO ropa_clinica VALUES(?,?,?,?,?,?,?,?,?,?)";
         
         try{
             conex=(Connection) conectar.getConnection();
@@ -147,22 +147,22 @@ public class RopaCDao implements Crud<RopaClinica>{
                 }
         }
     }
-    @Override
-    public int setActualizar(RopaClinica rpc){
-        String sql="UPDATE ropa_clinica SET rp_nombre=?,rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpc_estado=?,rpc_dano=?, rpc_usuario WHERE rpc_id="+rpc.getRpc_id();
+     public int setActualizarr(RopaClinica rp,int cat,int esta,int usus){
+        String sql="UPDATE ropa_clinica SET rp_nombre=?,rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpc_estado=?,rpc_descripcion_dano=?,rpc_usuario=? WHERE rpc_id="+rp.getRpc_id();
         
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
             
-            ps.setString(1, rpc.getRp_nombre());
-            ps.setString(2, rpc.getRp_marca());
-            ps.setString(3, rpc.getRp_descripcion());
-            ps.setString(4,rpc.getRp_color());
-            ps.setString(5,rpc.getRp_categoria());
-            ps.setString(8, rpc.getRpc_estado());
-            ps.setString(9, rpc.getRpc_dano());
-            ps.setString(10,rpc.getRpc_usuario());
+         
+            ps.setString(1, rp.getRp_nombre());
+            ps.setString(2, rp.getRp_marca());
+            ps.setString(3, rp.getRp_descripcion());
+            ps.setString(4, rp.getRp_color());
+            ps.setInt(5, cat);
+            ps.setInt(6,esta);
+            ps.setString(7, rp.getRpc_dano());
+            ps.setInt(8, usus);
             
             ps.executeUpdate();
             
@@ -180,6 +180,11 @@ public class RopaCDao implements Crud<RopaClinica>{
                 JOptionPane.showMessageDialog(null,sqle.toString());
                 }
         }
+    }
+         
+    @Override
+    public int setActualizar(RopaClinica rpc){
+      return 1;
     }
      @Override
     public int setEliminar(int rpc_id){
@@ -235,7 +240,7 @@ public class RopaCDao implements Crud<RopaClinica>{
     }
       public int idestado(String nombre2){
         
-          String sql= "SELECT estado_id FROM categoria WHERE estado_nombre=?";
+          String sql= "SELECT estado_id FROM estado_ropa WHERE estado_nombre=?";
           int id=0;
           
         try{

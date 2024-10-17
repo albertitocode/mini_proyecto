@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +21,7 @@ import modelo.RopaVDao;
 import modelo.RopaVenta;
 import modelo.LoginDao;
 import modelo.Rol;
+import vista.VistaLogin;
 import vista.VistaRopaVenta;
 
 /**
@@ -45,6 +47,7 @@ public class ControladorRopaVenta implements ActionListener {
         this.vista5.eliminar.addActionListener( this);
         this.vista5.enviar.addActionListener( this);
 //        da5.listaCategoria(this.vista5.tcategoria);
+        this.vista5.btncerrar.addActionListener(this);
         
         categorias();
 
@@ -148,6 +151,18 @@ public class ControladorRopaVenta implements ActionListener {
             vista5.tidventa.setEditable(true);
             
             
+        }
+        if(ae.getSource()==vista5.btncerrar){
+            if (ae.getSource()==vista5.btncerrar){
+            VistaLogin log = new VistaLogin();
+            
+            ControladorLogin con = new ControladorLogin(log);
+            log.setVisible(true);
+            log.setSize(850, 600);
+            log.setLocation(300, 10);
+            vista5.dispose();
+            log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
         }
     
     }
