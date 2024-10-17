@@ -120,18 +120,18 @@ public class Index {
 //                  visadmin.setLocation(300, 10);
 //           visadmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//           VistaSupervisor visasuper = new VistaSupervisor();
-//             ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
-//      visasuper.setVisible(true);
-//           visasuper.setSize(900, 650);
-//                  visasuper.setLocation(300, 10);
-//           visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+          VistaSupervisor visasuper = new VistaSupervisor();
+        ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
+        visasuper.setVisible(true);
+        visasuper.setSize(900, 760);
+        visasuper.setLocation(300, 10);
+        visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            
-            VistaVenta visven = new VistaVenta();
-        ControladorVenta conesuper = new ControladorVenta(visven);
-        visven.setVisible(true);
-        visven.setSize(900, 650);
-        visven.setLocation(300, 10);
-        visven.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//       VistaVenta visven = new VistaVenta();
+//        ControladorVenta conesuper = new ControladorVenta(visven);
+//        visven.setVisible(true);
+//        visven.setSize(900, 650);
+//        visven.setLocation(300, 10);
+//        visven.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 }

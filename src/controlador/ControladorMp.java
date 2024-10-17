@@ -17,6 +17,8 @@ import modelo.Rol;
 import vista.VistaLogin;
 
 import vista.VistaMateria;
+import vista.VistaRopaVenta;
+import vista.VistaSupervisor;
 
 
 /**
@@ -44,6 +46,11 @@ public class ControladorMp implements ActionListener {
         this.vista4.enviar.addActionListener(this);
         this.vista4.enviar.setEnabled(flag);
         this.vista4.btncerrar.addActionListener(this);
+        this.vista4.btnInicio.addActionListener(this);
+        this.vista4.btnTrabajadores.addActionListener(this);
+     this.vista4.btnRopaReparacion.addActionListener(this);
+        
+        this.vista4.btnperfil.addActionListener(this);
     }
      @Override
     public void actionPerformed(ActionEvent ae){
@@ -108,7 +115,7 @@ public class ControladorMp implements ActionListener {
             
             
         }
-        if(ae.getSource()==vista4.btncerrar){
+        
             if (ae.getSource()==vista4.btncerrar){
             VistaLogin log = new VistaLogin();
             
@@ -119,6 +126,27 @@ public class ControladorMp implements ActionListener {
             vista4.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
+       
+            if (ae.getSource()==vista4.btnInicio){
+                VistaSupervisor visasuper = new VistaSupervisor();
+                ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
+                visasuper.setVisible(true);
+                visasuper.setSize(881, 740);
+                visasuper.setLocation(300, 10);
+                vista4.dispose();
+                visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
+         if (ae.getSource()==vista4.btnTrabajadores){
+              
+        }
+        if (ae.getSource()==vista4.btnRopaReparacion){
+             VistaRopaVenta ropv = new VistaRopaVenta();
+            ControladorRopaVenta con = new ControladorRopaVenta(ropv);
+            ropv.setVisible(true);
+            ropv.setSize(850,600);
+            ropv.setLocation(300, 10);
+            vista4.dispose();
+            ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
         
     }

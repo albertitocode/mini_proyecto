@@ -31,6 +31,9 @@ public class VistaRopaClinica extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnperfil1 = new javax.swing.JButton();
         btncerrar = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
+        btnTrabajadores = new javax.swing.JButton();
+        btnInsumos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lid = new javax.swing.JLabel();
         lidclinica = new javax.swing.JLabel();
@@ -86,12 +89,42 @@ public class VistaRopaClinica extends javax.swing.JFrame {
         btncerrar.setContentAreaFilled(false);
         btncerrar.setFocusPainted(false);
 
+        btnInicio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setText("Inicio");
+        btnInicio.setBorder(null);
+        btnInicio.setBorderPainted(false);
+        btnInicio.setContentAreaFilled(false);
+        btnInicio.setFocusPainted(false);
+
+        btnTrabajadores.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnTrabajadores.setForeground(new java.awt.Color(255, 255, 255));
+        btnTrabajadores.setText("Trabajadores");
+        btnTrabajadores.setBorder(null);
+        btnTrabajadores.setBorderPainted(false);
+        btnTrabajadores.setContentAreaFilled(false);
+        btnTrabajadores.setFocusPainted(false);
+
+        btnInsumos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnInsumos.setForeground(new java.awt.Color(255, 255, 255));
+        btnInsumos.setText("Insumos");
+        btnInsumos.setBorder(null);
+        btnInsumos.setBorderPainted(false);
+        btnInsumos.setContentAreaFilled(false);
+        btnInsumos.setFocusPainted(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(700, Short.MAX_VALUE)
+                .addGap(310, 310, 310)
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnTrabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnperfil1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -101,6 +134,12 @@ public class VistaRopaClinica extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnperfil1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
             .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTrabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jLabel1.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
@@ -410,6 +449,9 @@ public class VistaRopaClinica extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton actualizar;
+    public javax.swing.JButton btnInicio;
+    public javax.swing.JButton btnInsumos;
+    public javax.swing.JButton btnTrabajadores;
     public javax.swing.JButton btncerrar;
     public javax.swing.JButton btnperfil1;
     public javax.swing.JButton buscar;

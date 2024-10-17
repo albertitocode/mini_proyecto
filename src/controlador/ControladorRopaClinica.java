@@ -20,9 +20,11 @@ import modelo.RopaVDao;
 import modelo.RopaVenta;
 import modelo.Usuarios;
 import vista.VistaLogin;
+import vista.VistaMateria;
 import vista.VistaRopaClini;
 import vista.VistaRopaClinica;
 import vista.VistaRopaVenta;
+import vista.VistaSupervisor;
 
 /**
  *
@@ -49,6 +51,9 @@ public class ControladorRopaClinica implements ActionListener {
         this.vistaclinica.enviar.addActionListener(this);
         this.vistaclinica.enviar.setEnabled(flag);
         this.vistaclinica.btncerrar.addActionListener(this);
+        this.vistaclinica.btnInicio.addActionListener(this);
+        this.vistaclinica.btnTrabajadores.addActionListener(this);
+        this.vistaclinica.btnInsumos.addActionListener(this);
         categorias();
         estados();
         usuarios();
@@ -163,7 +168,7 @@ public class ControladorRopaClinica implements ActionListener {
             
             
         }
-        if(ae.getSource()==vistaclinica.btncerrar){
+        
             if (ae.getSource()==vistaclinica.btncerrar){
             VistaLogin log = new VistaLogin();
             
@@ -174,8 +179,28 @@ public class ControladorRopaClinica implements ActionListener {
             vistaclinica.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
+        
+        if (ae.getSource()==vistaclinica.btnInicio){
+                VistaSupervisor visasuper = new VistaSupervisor();
+                ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
+                visasuper.setVisible(true);
+                visasuper.setSize(900, 650);
+                visasuper.setLocation(300, 10);
+                vistaclinica.dispose();
+                visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
-    
+         if (ae.getSource()==vistaclinica.btnTrabajadores){
+              
+        }
+         if (ae.getSource()==vistaclinica.btnInsumos){
+                VistaMateria vismate = new VistaMateria();
+                ControladorMp conesuper = new ControladorMp(vismate);
+                vismate.setVisible(true);
+                vismate.setSize(900, 650);
+                vismate.setLocation(300, 10);
+                vistaclinica.dispose();
+                vismate.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
     }
      public void getListar(JTable tabla){
         modelito5=(DefaultTableModel) tabla.getModel();

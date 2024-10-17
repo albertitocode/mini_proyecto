@@ -11,6 +11,8 @@ import modelo.SupervisorDao;
 import vista.VistaLogin;
 import vista.VistaMateria;
 import vista.VistaOrden;
+import vista.VistaRopaClinica;
+import vista.VistaRopaVenta;
 import vista.VistaSupervisor;
 import vista.VistaUsuarios;
 /**
@@ -70,7 +72,7 @@ public class ControladorSupervisor implements ActionListener{
 
             vistaSupervisor.dispose();
         }
-        if(e.getSource()==vistaSupervisor.btncerrar){
+       
             if (e.getSource()==vistaSupervisor.btncerrar){
             VistaLogin log = new VistaLogin();
             
@@ -81,6 +83,14 @@ public class ControladorSupervisor implements ActionListener{
             vistaSupervisor.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
+        if(e.getSource()==vistaSupervisor.btnRopa){
+            VistaRopaClinica ropc = new VistaRopaClinica();
+            ControladorRopaClinica con = new ControladorRopaClinica(ropc);
+            ropc.setVisible(true);
+            ropc.setSize(850, 600);
+            ropc.setLocation(300, 10);
+            vistaSupervisor.dispose();
+            ropc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
     }
     
