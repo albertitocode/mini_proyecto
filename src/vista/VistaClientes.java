@@ -27,7 +27,6 @@ public class VistaClientes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnperfil = new javax.swing.JButton();
         btncerrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -59,18 +58,6 @@ public class VistaClientes extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 0));
 
-        btnperfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario (1). (1).png"))); // NOI18N
-        btnperfil.setBorder(null);
-        btnperfil.setBorderPainted(false);
-        btnperfil.setContentAreaFilled(false);
-        btnperfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnperfil.setFocusPainted(false);
-        btnperfil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnperfilActionPerformed(evt);
-            }
-        });
-
         btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion (1).png"))); // NOI18N
         btncerrar.setBorder(null);
         btncerrar.setBorderPainted(false);
@@ -82,17 +69,14 @@ public class VistaClientes extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(828, Short.MAX_VALUE)
-                .addComponent(btnperfil)
-                .addGap(18, 18, 18)
+                .addContainerGap(911, Short.MAX_VALUE)
                 .addComponent(btncerrar)
                 .addGap(27, 27, 27))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnperfil, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 8, Short.MAX_VALUE)
                 .addComponent(btncerrar))
         );
 
@@ -303,10 +287,6 @@ public class VistaClientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnperfilActionPerformed
-
     private void tidclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tidclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tidclienteActionPerformed
@@ -353,7 +333,6 @@ public class VistaClientes extends javax.swing.JFrame {
     public javax.swing.JButton btnEnviar;
     public javax.swing.JButton btnInsertar;
     public javax.swing.JButton btncerrar;
-    public javax.swing.JButton btnperfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -4,6 +4,7 @@ import controlador.ControladorCategoria;
 import controlador.ControladorEstado;
 import controlador.ControladorLogin;
 import controlador.ControladorMp;
+import controlador.ControladorReparaciones;
 import controlador.ControladorRol;
 import controlador.ControladorRopaClinica;
 import controlador.ControladorRopaVenta;
@@ -18,6 +19,7 @@ import vista.VistaCategoria;
 import vista.VistaEstado;
 import vista.VistaLogin;
 import vista.VistaMateria;
+import vista.VistaReparaciones;
 import vista.VistaRol;
 import vista.VistaRopaClini;
 import vista.VistaRopaClinica;
@@ -128,10 +130,17 @@ public class Index {
 //        visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            
 //       VistaVenta visven = new VistaVenta();
-//        ControladorVenta conesuper = new ControladorVenta(visven);
+//        ControladorVenta cones = new ControladorVenta(visven);
 //        visven.setVisible(true);
 //        visven.setSize(900, 650);
 //        visven.setLocation(300, 10);
 //        visven.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//        VistaReparaciones vistrepair = new VistaReparaciones();
+//        ControladorReparaciones conesuper = new ControladorReparaciones(vistrepair);
+//        vistrepair.setVisible(true);
+//        vistrepair.setSize(900, 650);
+//        vistrepair.setLocation(300, 10);
+//        vistrepair.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 }

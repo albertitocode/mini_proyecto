@@ -36,5 +36,8 @@ public class Rol {
     public void setRol_nombre(String rol_nombre) {
         this.rol_nombre = rol_nombre;
     }
-    
+    @Override
+    public String toString() {
+        return rol_nombre; // Esto se mostrará en el JComboBox
+    }
 }

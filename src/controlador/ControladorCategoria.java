@@ -49,7 +49,7 @@ public class ControladorCategoria implements ActionListener {
         this.vista3.btncerrar.addActionListener(this);
        this.vista3.btnclientes.addActionListener(this);
         this.vista3.btnestados.addActionListener(this);
-        this.vista3.btnperfil.addActionListener(this);
+//        this.vista3.btnperfil.addActionListener(this);
         this.vista3.btnroles.addActionListener(this);
         this.vista3.btnusuarios.addActionListener(this);
         this.vista3.btninicio.addActionListener(this);
@@ -155,9 +155,9 @@ public class ControladorCategoria implements ActionListener {
             vista3.dispose();
             es.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
-        if(ae.getSource()==vista3.btnperfil){
-            JOptionPane.showMessageDialog(vista3,"Boton perfil en mantenimiento");
-        }
+//        if(ae.getSource()==vista3.btnperfil){
+//            JOptionPane.showMessageDialog(vista3,"Boton perfil en mantenimiento");
+//        }
         if(ae.getSource()==vista3.btnroles){
              VistaRol ro = new VistaRol();
         ControladorRol conrol = new ControladorRol(ro);

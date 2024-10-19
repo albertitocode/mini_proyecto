@@ -50,6 +50,10 @@ public class ControladorRol implements ActionListener{
         this.vista2.btnusuarios.addActionListener(this);
         this.vista2.btninicio.addActionListener(this);
     }
+
+    public ControladorRol() {
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==vista2.buscar){

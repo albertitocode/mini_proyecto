@@ -27,7 +27,6 @@ public class VistaRopaVenta extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        btnperfil1 = new javax.swing.JButton();
         btncerrar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         lid = new javax.swing.JLabel();
@@ -64,18 +63,6 @@ public class VistaRopaVenta extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 0));
 
-        btnperfil1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario (1). (1).png"))); // NOI18N
-        btnperfil1.setBorder(null);
-        btnperfil1.setBorderPainted(false);
-        btnperfil1.setContentAreaFilled(false);
-        btnperfil1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnperfil1.setFocusPainted(false);
-        btnperfil1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnperfil1ActionPerformed(evt);
-            }
-        });
-
         btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion (1).png"))); // NOI18N
         btncerrar.setBorder(null);
         btncerrar.setBorderPainted(false);
@@ -87,16 +74,13 @@ public class VistaRopaVenta extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(644, Short.MAX_VALUE)
-                .addComponent(btnperfil1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(727, Short.MAX_VALUE)
                 .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnperfil1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-            .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 70));
@@ -334,10 +318,6 @@ public class VistaRopaVenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnperfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfil1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnperfil1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -376,7 +356,6 @@ public class VistaRopaVenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton actualizar;
     public javax.swing.JButton btncerrar;
-    public javax.swing.JButton btnperfil1;
     public javax.swing.JButton buscar;
     public javax.swing.JButton eliminar;
     public javax.swing.JButton enviar;

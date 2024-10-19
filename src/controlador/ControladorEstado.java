@@ -46,7 +46,7 @@ public class ControladorEstado implements ActionListener{
            this.vistaes.btncategorias.addActionListener(this);
         this.vistaes.btnclientes.addActionListener(this);
      this.vistaes.btninicio.addActionListener(this);
-        this.vistaes.btnperfil.addActionListener(this);
+//        this.vistaes.btnperfil.addActionListener(this);
         this.vistaes.btnroles.addActionListener(this);
         this.vistaes.btnusuarios.addActionListener(this);
     }
@@ -156,9 +156,9 @@ public class ControladorEstado implements ActionListener{
             vclientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
         
-        if(ae.getSource()==vistaes.btnperfil){
-            JOptionPane.showMessageDialog(vistaes,"Boton perfil en mantenimiento");
-        }
+//        if(ae.getSource()==vistaes.btnperfil){
+//            JOptionPane.showMessageDialog(vistaes,"Boton perfil en mantenimiento");
+//        }
         if(ae.getSource()==vistaes.btnroles){
              VistaRol ro = new VistaRol();
         ControladorRol conrol = new ControladorRol(ro);

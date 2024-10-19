@@ -40,7 +40,6 @@ public class VistaCategoria extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         mitabla = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        btnperfil = new javax.swing.JButton();
         btncerrar = new javax.swing.JButton();
         btnclientes = new javax.swing.JButton();
         btnusuarios = new javax.swing.JButton();
@@ -184,18 +183,6 @@ public class VistaCategoria extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 0));
 
-        btnperfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario (1). (1).png"))); // NOI18N
-        btnperfil.setBorder(null);
-        btnperfil.setBorderPainted(false);
-        btnperfil.setContentAreaFilled(false);
-        btnperfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnperfil.setFocusPainted(false);
-        btnperfil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnperfilActionPerformed(evt);
-            }
-        });
-
         btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion (1).png"))); // NOI18N
         btncerrar.setBorder(null);
         btncerrar.setBorderPainted(false);
@@ -272,20 +259,15 @@ public class VistaCategoria extends javax.swing.JFrame {
                 .addComponent(btnestados, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnroles, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(btnperfil)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnperfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(btncerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnusuarios)
@@ -306,10 +288,6 @@ public class VistaCategoria extends javax.swing.JFrame {
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enviarActionPerformed
-
-    private void btnperfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfilActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnperfilActionPerformed
 
     private void btnclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclientesActionPerformed
         // TODO add your handling code here:
@@ -364,7 +342,6 @@ public class VistaCategoria extends javax.swing.JFrame {
     public javax.swing.JButton btnclientes;
     public javax.swing.JButton btnestados;
     public javax.swing.JButton btninicio;
-    public javax.swing.JButton btnperfil;
     public javax.swing.JButton btnroles;
     public javax.swing.JButton btnusuarios;
     public javax.swing.JButton buscar;

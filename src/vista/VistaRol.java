@@ -28,7 +28,6 @@ public class VistaRol extends javax.swing.JFrame {
 
         btnperfil = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        btnperfil1 = new javax.swing.JButton();
         btncerrar = new javax.swing.JButton();
         btnclientes = new javax.swing.JButton();
         btnestados = new javax.swing.JButton();
@@ -66,18 +65,6 @@ public class VistaRol extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 0));
-
-        btnperfil1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario (1). (1).png"))); // NOI18N
-        btnperfil1.setBorder(null);
-        btnperfil1.setBorderPainted(false);
-        btnperfil1.setContentAreaFilled(false);
-        btnperfil1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnperfil1.setFocusPainted(false);
-        btnperfil1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnperfil1ActionPerformed(evt);
-            }
-        });
 
         btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion (1).png"))); // NOI18N
         btncerrar.setBorder(null);
@@ -150,15 +137,12 @@ public class VistaRol extends javax.swing.JFrame {
                 .addComponent(btnusuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btncategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(btnperfil1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnperfil1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,10 +301,6 @@ public class VistaRol extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnperfilActionPerformed
 
-    private void btnperfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfil1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnperfil1ActionPerformed
-
     private void btnclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnclientesActionPerformed
@@ -373,7 +353,6 @@ public class VistaRol extends javax.swing.JFrame {
     public javax.swing.JButton btnestados;
     public javax.swing.JButton btninicio;
     public javax.swing.JButton btnperfil;
-    public javax.swing.JButton btnperfil1;
     public javax.swing.JButton btnusuarios;
     public javax.swing.JButton buscar;
     public javax.swing.JButton eliminar;

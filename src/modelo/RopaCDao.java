@@ -28,7 +28,7 @@ public class RopaCDao implements Crud<RopaClinica>{
     @Override
     public List listar(){
         List<RopaClinica> datos=new ArrayList<RopaClinica>();
-        String sql="select rp.rp_id,rp.rpc_id,rp.rp_nombre,rp.rp_marca,rp.rp_descripcion,rp.rp_color,c.categoria_nombre,es.estado_nombre,rp.rpc_descripcion_dano,us.persona_nombre FROM ropa_clinica rp JOIN categoria c ON rp.rp_categoria=c.categoria_id JOIN estado_ropa es ON rp.rpc_estado=es.estado_id JOIN usuarios us ON rp.rpc_usuario=us.usuario_id";
+        String sql="select rp.rp_id,rp.rpc_id,rp.rp_nombre,rp.rp_marca,rp.rp_descripcion,rp.rp_color,c.categoria_nombre,es.estado_nombre,rp.rpc_descripcion_dano,us.persona_nombre,rp.rpc_cliente FROM ropa_clinica rp JOIN categoria c ON rp.rp_categoria=c.categoria_id JOIN estado_ropa es ON rp.rpc_estado=es.estado_id JOIN usuarios us ON rp.rpc_usuario=us.usuario_id";
         try{
             conex=(Connection) conectar.getConnection();
             ps=(PreparedStatement) conex.prepareStatement(sql);
@@ -45,6 +45,45 @@ public class RopaCDao implements Crud<RopaClinica>{
                 rpc.setRpc_estado(rs.getString(8));
                 rpc.setRpc_dano(rs.getString(9));
                 rpc.setRpc_usuario(rs.getString(10));
+                rpc.setRpc_cliente(rs.getInt(11));
+                
+                
+                datos.add(rpc);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.toString());
+        }finally{
+            try{
+                if(conex!=null){
+                    conex.close();
+                }
+                
+            }catch(SQLException sqle){
+                JOptionPane.showMessageDialog(null, sql.toString());
+            }
+        }
+        return datos;
+    }
+    public List listarPorCliente(int cliente){
+        List<RopaClinica> datos=new ArrayList<RopaClinica>();
+        String sql="select rp.rp_id,rp.rpc_id,rp.rp_nombre,rp.rp_marca,rp.rp_descripcion,rp.rp_color,c.categoria_nombre,es.estado_nombre,rp.rpc_descripcion_dano,us.persona_nombre,rp.rpc_cliente FROM ropa_clinica rp JOIN categoria c ON rp.rp_categoria=c.categoria_id JOIN estado_ropa es ON rp.rpc_estado=es.estado_id JOIN usuarios us ON rp.rpc_usuario=us.usuario_id WHERE rpc_cliente="+cliente;
+        try{
+            conex=(Connection) conectar.getConnection();
+            ps=(PreparedStatement) conex.prepareStatement(sql);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                RopaClinica rpc= new RopaClinica();
+                rpc.setRp_id(rs.getInt(1));
+                rpc.setRpc_id(rs.getInt(2));
+                rpc.setRp_nombre(rs.getString(3));
+                rpc.setRp_marca(rs.getString(4));
+                rpc.setRp_descripcion(rs.getString(5));
+                rpc.setRp_color(rs.getString(6));
+                rpc.setRp_categoria(rs.getString(7));
+                rpc.setRpc_estado(rs.getString(8));
+                rpc.setRpc_dano(rs.getString(9));
+                rpc.setRpc_usuario(rs.getString(10));
+                rpc.setRpc_cliente(rs.getInt(11));
                 
                 
                 datos.add(rpc);
@@ -66,7 +105,7 @@ public class RopaCDao implements Crud<RopaClinica>{
     @Override
     public int setAgregar(RopaClinica rpclinica){
 //       int r;
-        String sql="INSERT INTO ropa_clinica VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO ropa_clinica VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         
         try{
             conex=(Connection) conectar.getConnection();
@@ -82,7 +121,7 @@ public class RopaCDao implements Crud<RopaClinica>{
             ps.setString(8, rpclinica.getRpc_estado());
             ps.setString(9, rpclinica.getRpc_dano());
             ps.setString(10,rpclinica.getRpc_usuario());
-            
+            ps.setInt(11, rpclinica.getRpc_cliente());
             
             ps.executeUpdate();
             return 1;
@@ -102,7 +141,7 @@ public class RopaCDao implements Crud<RopaClinica>{
     }
     public int setAgregarr(RopaClinica rp, int cat,int esta,int usus){
 //       int r;
-        String sql="INSERT INTO ropa_clinica VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO ropa_clinica VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         
         try{
             conex=(Connection) conectar.getConnection();
@@ -122,6 +161,7 @@ public class RopaCDao implements Crud<RopaClinica>{
             ps.setInt(8,esta);
             ps.setString(9, rp.getRpc_dano());
             ps.setInt(10, usus);
+            ps.setInt(11, rp.getRpc_cliente());
             
             ps.executeUpdate();
             return 1;
@@ -148,7 +188,7 @@ public class RopaCDao implements Crud<RopaClinica>{
         }
     }
      public int setActualizarr(RopaClinica rp,int cat,int esta,int usus){
-        String sql="UPDATE ropa_clinica SET rp_nombre=?,rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpc_estado=?,rpc_descripcion_dano=?,rpc_usuario=? WHERE rpc_id="+rp.getRpc_id();
+        String sql="UPDATE ropa_clinica SET rp_nombre=?,rp_marca=?,rp_descripcion=?,rp_color=?,rp_categoria=?,rpc_estado=?,rpc_descripcion_dano=?,rpc_usuario=?,rpc_cliente=? WHERE rpc_id="+rp.getRpc_id();
         
         try{
             conex=(Connection) conectar.getConnection();
@@ -163,7 +203,7 @@ public class RopaCDao implements Crud<RopaClinica>{
             ps.setInt(6,esta);
             ps.setString(7, rp.getRpc_dano());
             ps.setInt(8, usus);
-            
+            ps.setInt(11, rp.getRpc_cliente());
             ps.executeUpdate();
             
             return 1;

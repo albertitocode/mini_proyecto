@@ -13,18 +13,27 @@ public class RopaClinica extends Ropa {
     String rpc_estado;
     String rpc_dano;
     String rpc_usuario;
-
+    int rpc_cliente;
     public RopaClinica() {
     }
 
-    public RopaClinica(int rpc_id, String rpc_estado, String rpc_dano,String rpc_usuario, int rp_id, String rp_nombre, String rp_marca, String rp_descripcion, String rp_color, String rp_categoria) {
+    public RopaClinica(int rpc_id, String rpc_estado, String rpc_dano,String rpc_usuario,int rpc_cliente , int rp_id, String rp_nombre, String rp_marca, String rp_descripcion, String rp_color, String rp_categoria) {
         super(rp_id, rp_nombre, rp_marca, rp_descripcion, rp_color, rp_categoria);
         this.rpc_id = rpc_id;
         this.rpc_estado = rpc_estado;
         this.rpc_dano = rpc_dano;
         this.rpc_usuario=rpc_usuario;
+        this.rpc_cliente=rpc_cliente;
     }
 
+    public int getRpc_cliente() {
+        return rpc_cliente;
+    }
+
+    public void setRpc_cliente(int rpc_cliente) {
+        this.rpc_cliente = rpc_cliente;
+    }
+    
     public String getRpc_usuario() {
         return rpc_usuario;
     }

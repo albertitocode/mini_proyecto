@@ -17,6 +17,7 @@ import modelo.UsuariosDao;
 import modelo.Venta;
 import modelo.VentaDao;
 import vista.VistaClientes;
+import vista.VistaReparaciones;
 import vista.VistaUsuarios;
 import vista.VistaVenta;
 
@@ -40,13 +41,14 @@ public class ControladorVenta implements ActionListener {
     public ControladorVenta(VistaVenta visvent, Login log) {
         this.login = log;
         this.vista1 = visvent;
-        this.vista1.enviar.addActionListener(this);
+        this.vista1.ventas.addActionListener(this);
         this.vista1.vender.addActionListener(this);
+        this.vista1.btnReparaciones.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == vista1.enviar) {
+        if (ae.getSource() == vista1.ventas) {
             int id_v = Integer.parseInt(vista1.tid.getText().toString());
             mostrarPrenda(id_v);
 //             dao1.getPrenda(id_v);
@@ -77,18 +79,23 @@ public class ControladorVenta implements ActionListener {
 
             }
 
-//             dao1.getPrenda(id_v);
+        }
+        if(ae.getSource()==vista1.btnReparaciones){
+        VistaReparaciones vistrepair = new VistaReparaciones();
+        ControladorReparaciones conesuper = new ControladorReparaciones(vistrepair);
+        vistrepair.setVisible(true);
+        vistrepair.setSize(900, 650);
+        vistrepair.setLocation(300, 10);
+        vista1.dispose();
+        vistrepair.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
     }
 
     public void setVenta(int c, int v, int p){
        int resultado;
-       
-       
-       
+
        resultado=dao1.getVenta(c, v, p);
-       
-       
+ 
        if(resultado==1){
            dao1.stockRopaVenta(p);
            JOptionPane.showMessageDialog(vista1,"Se ingreso correctamente");

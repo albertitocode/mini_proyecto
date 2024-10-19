@@ -31,7 +31,7 @@ public class VistaVenta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         ide = new javax.swing.JLabel();
         tid = new javax.swing.JTextField();
-        enviar = new javax.swing.JButton();
+        btnhistorialventas = new javax.swing.JButton();
         ln = new javax.swing.JLabel();
         lnombre = new javax.swing.JLabel();
         lnombre3 = new javax.swing.JLabel();
@@ -41,6 +41,8 @@ public class VistaVenta extends javax.swing.JFrame {
         lpre = new javax.swing.JLabel();
         lstock = new javax.swing.JLabel();
         vender = new javax.swing.JButton();
+        ventas = new javax.swing.JButton();
+        btnReparaciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,25 +73,25 @@ public class VistaVenta extends javax.swing.JFrame {
         tid.setBackground(new java.awt.Color(234, 223, 191));
         tid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        enviar.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
-        enviar.setText("Enviar");
-        enviar.setBorder(null);
-        enviar.setBorderPainted(false);
-        enviar.setContentAreaFilled(false);
-        enviar.setFocusPainted(false);
+        btnhistorialventas.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
+        btnhistorialventas.setText("Presiona aquí para ver el historial de ventas");
+        btnhistorialventas.setBorder(null);
+        btnhistorialventas.setBorderPainted(false);
+        btnhistorialventas.setContentAreaFilled(false);
+        btnhistorialventas.setFocusPainted(false);
 
         ln.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
         ln.setText("Nombre:");
 
         lnombre.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
-        lnombre.setText("hhh");
+        lnombre.setText("nombre");
 
         lnombre3.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
         lnombre3.setText("Descripcion:");
 
         ldescri.setBackground(new java.awt.Color(255, 255, 255));
         ldescri.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
-        ldescri.setText("fggg");
+        ldescri.setText("descripcion");
 
         lnombre5.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
         lnombre5.setText("Precio:");
@@ -98,10 +100,10 @@ public class VistaVenta extends javax.swing.JFrame {
         lnombre6.setText("Stock");
 
         lpre.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
-        lpre.setText("hhh");
+        lpre.setText("precio");
 
         lstock.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
-        lstock.setText("hhh");
+        lstock.setText("stock");
 
         vender.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
         vender.setText("Vender");
@@ -110,47 +112,70 @@ public class VistaVenta extends javax.swing.JFrame {
         vender.setContentAreaFilled(false);
         vender.setFocusPainted(false);
 
+        ventas.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
+        ventas.setText("Enviar");
+        ventas.setBorder(null);
+        ventas.setBorderPainted(false);
+        ventas.setContentAreaFilled(false);
+        ventas.setFocusPainted(false);
+
+        btnReparaciones.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
+        btnReparaciones.setText("Presiona aquí para ver el historial de reparaciones");
+        btnReparaciones.setBorder(null);
+        btnReparaciones.setBorderPainted(false);
+        btnReparaciones.setContentAreaFilled(false);
+        btnReparaciones.setFocusPainted(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(503, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(411, 411, 411))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lnombre3)
-                            .addComponent(ln))
+                            .addComponent(btnhistorialventas)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lnombre3)
+                                    .addComponent(ln))
+                                .addGap(93, 93, 93)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ldescri, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(ldescri, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(lnombre6))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lstock, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(vender, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lpre, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(285, 285, 285))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGap(21, 21, 21)
-                                    .addComponent(lnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(150, 150, 150)
-                                    .addComponent(lnombre5)
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGap(0, 211, Short.MAX_VALUE)
+                                .addComponent(vender, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(285, 285, 285))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lnombre5)
+                                        .addGap(60, 60, 60))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lnombre6)
+                                        .addGap(69, 69, 69)))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lpre, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lstock, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(ide, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(enviar))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(422, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(411, 411, 411))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnReparaciones)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(ide, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(ventas)))
+                        .addGap(0, 604, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,24 +186,28 @@ public class VistaVenta extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ide)
                     .addComponent(tid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enviar))
+                    .addComponent(ventas))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ln)
-                    .addComponent(lnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lpre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lnombre5)
-                        .addComponent(lpre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lnombre5)))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lnombre3)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ldescri, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lnombre6)
-                        .addComponent(lstock, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lnombre6))
+                    .addComponent(lstock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addComponent(vender)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(vender)
+                    .addComponent(btnhistorialventas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(btnReparaciones)
+                .addGap(199, 199, 199))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 560));
@@ -222,7 +251,8 @@ public class VistaVenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton enviar;
+    public javax.swing.JButton btnReparaciones;
+    public javax.swing.JButton btnhistorialventas;
     private javax.swing.JLabel ide;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -237,5 +267,6 @@ public class VistaVenta extends javax.swing.JFrame {
     public javax.swing.JLabel lstock;
     public javax.swing.JTextField tid;
     public javax.swing.JButton vender;
+    public javax.swing.JButton ventas;
     // End of variables declaration//GEN-END:variables
 }

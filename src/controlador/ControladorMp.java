@@ -50,7 +50,7 @@ public class ControladorMp implements ActionListener {
         this.vista4.btnTrabajadores.addActionListener(this);
      this.vista4.btnRopaReparacion.addActionListener(this);
         
-        this.vista4.btnperfil.addActionListener(this);
+//        this.vista4.btnperfil.addActionListener(this);
     }
      @Override
     public void actionPerformed(ActionEvent ae){

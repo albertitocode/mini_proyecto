@@ -6,11 +6,15 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.Rol;
 import modelo.Usuarios;
 import modelo.UsuariosDao;
 import vista.VistaAdmin;
@@ -31,7 +35,14 @@ public class ControladorUs implements ActionListener{
     public Usuarios us= new Usuarios();
     public VistaUsuarios vista1 = new VistaUsuarios();
     DefaultTableModel modelito=new DefaultTableModel();
+    Pattern pattern;
+    Matcher matcher;
+    String unaLetraMayuscula = ".*[A-Z].*"; // Al menos una letra mayúscula
+    String unaLetraMinuscula = ".*[a-z].*"; // Al menos una letra minúscula
+    String unNumero = ".*[0-9].*";      // Al menos un número
+    String unCaracter = ".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*";//Al menos un caracter
     
+    public ControladorRol control=new ControladorRol();
     public ControladorUs(VistaUsuarios vis){
         this.vista1=vis;
         this.vista1.Ubuscar.addActionListener(this);
@@ -40,7 +51,7 @@ public class ControladorUs implements ActionListener{
         this.vista1.Ueliminar.addActionListener(this);
         this.vista1.enviar.addActionListener(this);
         this.vista1.enviar.setEnabled(flag);
-        dao1.listaRol(this.vista1.trol);
+//        dao1.listaRol(this.vista1.trol);
         this.vista1.btncerrar.addActionListener(this);
         this.vista1.btncategorias.addActionListener(this);
         this.vista1.btnclientes.addActionListener(this);
@@ -49,11 +60,18 @@ public class ControladorUs implements ActionListener{
         this.vista1.btnroles.addActionListener(this);
         this.vista1.btninicio.addActionListener(this);
         
+        roles();
     }
 
     public ControladorUs() {
     }
-    
+    public void roles(){
+        ArrayList<Rol> rol = (ArrayList<Rol>) this.control.da2.listar();
+        for (Rol ro : rol) {
+//             vista1.tcategoria.addItem(categoria.toString());
+             vista1.trol.addItem(ro.toString());
+        }
+    } 
     
     @Override
     public void actionPerformed(ActionEvent ae){
@@ -220,16 +238,51 @@ public class ControladorUs implements ActionListener{
     }
      public void setAgregar(){
        int resultado;
-       
+       boolean validar=true;
        int tid=Integer.parseInt(vista1.Tid.getText().toString());
        String tnombre=vista1.TNombre.getText().toString();
        String tapellido=vista1.Tapellido.getText().toString();
        int tid_us=Integer.parseInt(vista1.Tid_usuario.getText().toString());
        String tcorreo=vista1.Tcorreo.getText().toString();
-       String tcontraseña=vista1.Tcontraseña.getText().toString();
+        String tcontraseña=vista1.Tcontraseña.getText().toString();
        int telefono=Integer.parseInt(vista1.Ttelefono.getText().toString());
        String trol=vista1.trol.getSelectedItem().toString();
        
+//       if(tid){
+//            JOptionPane.showMessageDialog(vista1,"Error :/ \n Su id debe tener 10 digitos");
+//       validar = false;
+//       }
+
+       
+      if(tcontraseña.length()<12){
+       JOptionPane.showMessageDialog(vista1,"Error :/ \n La contraseña debe tener como minimo 12");
+       validar = false;
+       }
+      pattern=Pattern.compile(unaLetraMayuscula);
+      matcher=pattern.matcher(tcontraseña);
+      if(!matcher.matches()){
+      JOptionPane.showMessageDialog(vista1,"Error :/ \n La contraseña debe tener al menos una letra mayúscula");
+       validar = false;
+      }
+      pattern=Pattern.compile(unaLetraMinuscula);
+      matcher=pattern.matcher(tcontraseña);
+      if(!matcher.matches()){
+      JOptionPane.showMessageDialog(vista1,"Error :/ \n La contraseña debe tener al menos una letra minúscula");
+       validar = false;
+      }
+      pattern=Pattern.compile(unNumero);
+      matcher=pattern.matcher(tcontraseña);
+      if(!matcher.matches()){
+      JOptionPane.showMessageDialog(vista1,"Error :/ \n La contraseña debe tener al menos un número");
+       validar = false;
+      }
+      pattern=Pattern.compile(unCaracter);
+      matcher=pattern.matcher(tcontraseña);
+      if(!matcher.matches()){
+      JOptionPane.showMessageDialog(vista1,"Error :/ \n La contraseña debe tener al menos un caractér especial \n Ejemplo *");
+       validar = false;
+      }
+      if(validar==true){
        us.setPersona_id(tid);
        us.setPersona_nombre(tnombre);
        us.setPersona_apellido(tapellido);
@@ -239,15 +292,20 @@ public class ControladorUs implements ActionListener{
        us.setUsuario_telefono(telefono);
        us.setRol(trol);
        
-       resultado=dao1.setAgregar(us);
+       int conversion=dao1.idro(trol);
        
-       if(resultado==1){
+       resultado=dao1.setAgregarr(us,conversion);
+        if(resultado==1){
            JOptionPane.showMessageDialog(vista1,"Se ingreso correctamente");
        }else{
            if(resultado==0){
            JOptionPane.showMessageDialog(vista1,"Error de insercion "+JOptionPane.ERROR_MESSAGE);
            }
        }
+      }
+      
+       
+      
      }
      public void setActualizar(int per_id){
         int resultado;
@@ -270,7 +328,8 @@ public class ControladorUs implements ActionListener{
        us.setUsuario_telefono(telefono);
        us.setRol(trol);
        
-       resultado=dao1.setActualizar(us);
+       int conversion=dao1.idro(trol);
+       resultado=dao1.setActualizarr(us,conversion);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vista1,"Se ingreso correctamente");

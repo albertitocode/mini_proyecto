@@ -29,7 +29,6 @@ public class VistaRopaClinica extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnperfil1 = new javax.swing.JButton();
         btncerrar = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
         btnTrabajadores = new javax.swing.JButton();
@@ -63,6 +62,8 @@ public class VistaRopaClinica extends javax.swing.JFrame {
         elminar = new javax.swing.JButton();
         enviar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lcliente = new javax.swing.JLabel();
+        tcliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,18 +71,6 @@ public class VistaRopaClinica extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(234, 223, 191));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 0));
-
-        btnperfil1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario (1). (1).png"))); // NOI18N
-        btnperfil1.setBorder(null);
-        btnperfil1.setBorderPainted(false);
-        btnperfil1.setContentAreaFilled(false);
-        btnperfil1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnperfil1.setFocusPainted(false);
-        btnperfil1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnperfil1ActionPerformed(evt);
-            }
-        });
 
         btncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar-sesion (1).png"))); // NOI18N
         btncerrar.setBorder(null);
@@ -125,21 +114,21 @@ public class VistaRopaClinica extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnperfil1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(72, 72, 72))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnperfil1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-            .addComponent(btncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 71, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTrabajadores, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btncerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
@@ -214,11 +203,11 @@ public class VistaRopaClinica extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "ID CLINICA", "NOMBRE", "MARCA", "DESCRIPCION", "COLOR", "CATEGORIA", "ESTADO", "DAÑO", "USUARIO ENCARGADO"
+                "ID", "ID CLINICA", "NOMBRE", "MARCA", "DESCRIPCION", "COLOR", "CATEGORIA", "ESTADO", "DAÑO", "USUARIO ENCARGADO", "ID CLIENTE"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -264,13 +253,19 @@ public class VistaRopaClinica extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/esquema-de-chico-de-reparacion.png"))); // NOI18N
 
+        lcliente.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
+        lcliente.setText("Id cliente");
+
+        tcliente.setBackground(new java.awt.Color(234, 223, 191));
+        tcliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +273,9 @@ public class VistaRopaClinica extends javax.swing.JFrame {
                                 .addGap(153, 153, 153)
                                 .addComponent(lusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(38, 38, 38)
-                                .addComponent(cusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
+                                .addComponent(lcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(buscar)
@@ -286,8 +283,8 @@ public class VistaRopaClinica extends javax.swing.JFrame {
                                     .addComponent(insertar)
                                     .addComponent(elminar)
                                     .addComponent(enviar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -334,7 +331,10 @@ public class VistaRopaClinica extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(234, 234, 234)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(tcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(213, 213, 213)))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -372,13 +372,15 @@ public class VistaRopaClinica extends javax.swing.JFrame {
                     .addComponent(tcolor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ldano)
                     .addComponent(tdano, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lusuario)
-                            .addComponent(cusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45)
+                            .addComponent(cusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lcliente)
+                            .addComponent(tcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
@@ -391,19 +393,15 @@ public class VistaRopaClinica extends javax.swing.JFrame {
                         .addComponent(actualizar)
                         .addGap(32, 32, 32)
                         .addComponent(elminar)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 920, 650));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 920, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnperfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnperfil1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnperfil1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -453,7 +451,6 @@ public class VistaRopaClinica extends javax.swing.JFrame {
     public javax.swing.JButton btnInsumos;
     public javax.swing.JButton btnTrabajadores;
     public javax.swing.JButton btncerrar;
-    public javax.swing.JButton btnperfil1;
     public javax.swing.JButton buscar;
     public javax.swing.JComboBox<String> ccategoria;
     public javax.swing.JComboBox<String> cestado;
@@ -469,6 +466,7 @@ public class VistaRopaClinica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lcategoria;
+    private javax.swing.JLabel lcliente;
     private javax.swing.JLabel lcolor;
     private javax.swing.JLabel ldano;
     private javax.swing.JLabel ldescripcion;
@@ -479,6 +477,7 @@ public class VistaRopaClinica extends javax.swing.JFrame {
     private javax.swing.JLabel lnombre;
     private javax.swing.JLabel lusuario;
     public javax.swing.JTable mitabla;
+    public javax.swing.JTextField tcliente;
     public javax.swing.JTextField tcolor;
     public javax.swing.JTextField tdano;
     public javax.swing.JTextField tdescripcion;

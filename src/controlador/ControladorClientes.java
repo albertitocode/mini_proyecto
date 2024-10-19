@@ -38,7 +38,7 @@ public class ControladorClientes implements ActionListener {
         this.vistaC.btnEnviar.addActionListener(this);
         this.vistaC.btnEnviar.setEnabled(flag);
         this.vistaC.btncerrar.addActionListener(this);
-        this.vistaC.btnperfil.addActionListener(this);
+//        this.vistaC.btnperfil.addActionListener(this);
     }
     
     
@@ -122,9 +122,9 @@ public class ControladorClientes implements ActionListener {
             vistaC.tidcliente.setEditable(true);
 
         }
-          if(ae.getSource()==vistaC.btnperfil){
-            JOptionPane.showMessageDialog(vistaC,"Boton perfil en mantenimiento");
-        }
+//          if(ae.getSource()==vistaC.btnperfil){
+//            JOptionPane.showMessageDialog(vistaC,"Boton perfil en mantenimiento");
+//        }
          if(ae.getSource()==vistaC.btncerrar){
             if (ae.getSource()==vistaC.btncerrar){
             VistaLogin log = new VistaLogin();

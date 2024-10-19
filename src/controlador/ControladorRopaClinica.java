@@ -33,7 +33,7 @@ import vista.VistaSupervisor;
 public class ControladorRopaClinica implements ActionListener {
      boolean flag=false;
     public RopaCDao daClinica=new RopaCDao();
-    public RopaClinica rpv= new RopaClinica();
+    public RopaClinica rpc= new RopaClinica();
     public VistaRopaClinica vistaclinica = new VistaRopaClinica();
     DefaultTableModel modelito5=new DefaultTableModel();
 
@@ -96,7 +96,8 @@ public class ControladorRopaClinica implements ActionListener {
              !vistaclinica.ccategoria.getSelectedItem().toString().isBlank()&&
              !vistaclinica.cestado.getSelectedItem().toString().isBlank()&&
              !vistaclinica.tdano.getText().toString().isBlank()&&
-             !vistaclinica.cusuario.getSelectedItem().toString().isBlank())
+             !vistaclinica.cusuario.getSelectedItem().toString().isBlank()&&
+             !vistaclinica.tcliente.getText().toString().isBlank())
           {
               setAgregar();
               nuevo();
@@ -127,7 +128,7 @@ public class ControladorRopaClinica implements ActionListener {
                 String rpc_estado=vistaclinica.mitabla.getValueAt(fila, 7).toString();
                 String rpc_dano=vistaclinica.mitabla.getValueAt(fila, 8).toString();
                 String rpc_usuario=vistaclinica.mitabla.getValueAt(fila, 9).toString();
-                
+                int rpc_cliente=Integer.parseInt(vistaclinica.mitabla.getValueAt(fila, 1).toString());
                 
               vistaclinica.tid.setText(""+rp_id);vistaclinica.tid.setEditable(false);
               vistaclinica.idiclinica.setText(""+rpc_id);vistaclinica.idiclinica.setEditable(false);
@@ -139,6 +140,7 @@ public class ControladorRopaClinica implements ActionListener {
               vistaclinica.cestado.setSelectedItem(rpc_estado);
               vistaclinica.tdano.setText(rpc_dano);
               vistaclinica.cusuario.setSelectedItem(rpc_usuario);
+              vistaclinica.tcliente.setText(""+rpc_cliente);
               
               vistaclinica.enviar.setEnabled(flag);
             }
@@ -205,7 +207,7 @@ public class ControladorRopaClinica implements ActionListener {
      public void getListar(JTable tabla){
         modelito5=(DefaultTableModel) tabla.getModel();
         List<RopaClinica>lista = daClinica.listar();
-        Object[] object=new Object[10];
+        Object[] object=new Object[11];
         
         for(int indice=0;indice<lista.size();indice++){
             object[0]=lista.get(indice).getRp_id();
@@ -218,6 +220,7 @@ public class ControladorRopaClinica implements ActionListener {
             object[7]=lista.get(indice).getRpc_estado();
             object[8]=lista.get(indice).getRpc_dano();
             object[9]=lista.get(indice).getRpc_usuario();
+            object[10]=lista.get(indice).getRpc_cliente();
             
             modelito5.addRow(object);
         }
@@ -236,22 +239,24 @@ public class ControladorRopaClinica implements ActionListener {
        String rpc_estado=vistaclinica.cestado.getSelectedItem().toString();
        String rpc_dano=vistaclinica.tdano.getText().toString();
        String rpc_usuario=vistaclinica.cusuario.getSelectedItem().toString();
+       int rpc_cliente=Integer.parseInt(vistaclinica.tcliente.getText().toString());
        
-       rpv.setRp_id(rp_id);
-       rpv.setRpc_id(rpc_id);
-       rpv.setRp_nombre(rp_nombre);
-       rpv.setRp_marca(rp_marca);
-       rpv.setRp_descripcion(rp_descripcion);
-       rpv.setRp_color(rp_color);
-       rpv.setRp_categoria(rp_categoria);
-       rpv.setRpc_estado(rpc_estado);
-       rpv.setRpc_dano(rpc_dano);
-       rpv.setRpc_usuario(rpc_usuario);
+       rpc.setRp_id(rp_id);
+       rpc.setRpc_id(rpc_id);
+       rpc.setRp_nombre(rp_nombre);
+       rpc.setRp_marca(rp_marca);
+       rpc.setRp_descripcion(rp_descripcion);
+       rpc.setRp_color(rp_color);
+       rpc.setRp_categoria(rp_categoria);
+       rpc.setRpc_estado(rpc_estado);
+       rpc.setRpc_dano(rpc_dano);
+       rpc.setRpc_usuario(rpc_usuario);
+       rpc.setRpc_cliente(rpc_cliente);
        
       int cate=daClinica.idcategoria(rp_categoria);
       int est=daClinica.idestado(rpc_estado);
       int usu=daClinica.idUsuario(rpc_usuario);
-       resultado=daClinica.setAgregarr(rpv,cate,est,usu);
+       resultado=daClinica.setAgregarr(rpc,cate,est,usu);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vistaclinica,"Se ingreso correctamente");
@@ -274,21 +279,24 @@ public class ControladorRopaClinica implements ActionListener {
        String rpc_estado=vistaclinica.cestado.getSelectedItem().toString();
        String rpc_dano=vistaclinica.tdano.getText().toString();
        String rpc_usuario=vistaclinica.cusuario.getSelectedItem().toString();
+       int rpc_cliente=Integer.parseInt(vistaclinica.tcliente.getText().toString());
        
-       rpv.setRp_id(rp_id);
-       rpv.setRpc_id(rpc_id);
-       rpv.setRp_nombre(rp_nombre);
-       rpv.setRp_marca(rp_marca);
-       rpv.setRp_descripcion(rp_descripcion);
-       rpv.setRp_color(rp_color);
-       rpv.setRp_categoria(rp_categoria);
-       rpv.setRpc_estado(rpc_estado);
-       rpv.setRpc_dano(rpc_dano);
-       rpv.setRpc_usuario(rpc_usuario);
+       rpc.setRp_id(rp_id);
+       rpc.setRpc_id(rpc_id);
+       rpc.setRp_nombre(rp_nombre);
+       rpc.setRp_marca(rp_marca);
+       rpc.setRp_descripcion(rp_descripcion);
+       rpc.setRp_color(rp_color);
+       rpc.setRp_categoria(rp_categoria);
+       rpc.setRpc_estado(rpc_estado);
+       rpc.setRpc_dano(rpc_dano);
+       rpc.setRpc_usuario(rpc_usuario);
+       rpc.setRpc_cliente(rpc_cliente);
+       
        int cate=daClinica.idcategoria(rp_categoria);
        int est=daClinica.idestado(rpc_estado);
        int usu=daClinica.idUsuario(rpc_usuario);
-       resultado=daClinica.setActualizarr(rpv,cate,est,usu);
+       resultado=daClinica.setActualizarr(rpc,cate,est,usu);
        
        if(resultado==1){
            JOptionPane.showMessageDialog(vistaclinica,"Se actualizó correctamente");
@@ -321,7 +329,7 @@ public class ControladorRopaClinica implements ActionListener {
        vistaclinica.cestado.setSelectedItem("");
        vistaclinica.tdano.setText("");
        vistaclinica.cusuario.setSelectedItem("");
-        
+       vistaclinica.tcliente.setText("");
         
         
     }
