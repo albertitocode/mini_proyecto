@@ -58,7 +58,7 @@ public class ControladorTecnico implements ActionListener{
         vista5.setCorreo(correo); // Método para establecer el correo en la vista
         vista5.setVisible(true);
         vista5.lnombre.setText(correo);
-        corre=this.vista5.lnombre.getText();
+        corre=this.vista5.lnombre.getText(); 
     }
      @Override
     public void actionPerformed(ActionEvent ae){

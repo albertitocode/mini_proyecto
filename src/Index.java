@@ -74,13 +74,13 @@ public class Index {
 //        
 //        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//        VistaLogin log = new VistaLogin();
-//        ControladorLogin con = new ControladorLogin(log);
-//        log.setVisible(true);
-//        log.setSize(850,600);
-//        log.setLocation(300, 10);
-//        
-//        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        VistaLogin log = new VistaLogin();
+        ControladorLogin con = new ControladorLogin(log);
+        log.setVisible(true);
+        log.setSize(850,600);
+        log.setLocation(300, 10);
+        
+        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 //        VistaRopaVenta ropv = new VistaRopaVenta();
 //        ControladorRopaVenta con = new ControladorRopaVenta(ropv);
@@ -120,12 +120,12 @@ public class Index {
 //                  visadmin.setLocation(300, 10);
 //           visadmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-          VistaSupervisor visasuper = new VistaSupervisor();
-        ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
-        visasuper.setVisible(true);
-        visasuper.setSize(900, 760);
-        visasuper.setLocation(300, 10);
-        visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//          VistaSupervisor visasuper = new VistaSupervisor();
+//        ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
+//        visasuper.setVisible(true);
+//        visasuper.setSize(900, 760);
+//        visasuper.setLocation(300, 10);
+//        visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            
 //       VistaVenta visven = new VistaVenta();
 //        ControladorVenta conesuper = new ControladorVenta(visven);
