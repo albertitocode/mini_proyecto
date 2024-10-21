@@ -1,6 +1,7 @@
 
 import controlador.ControladorAdmin;
 import controlador.ControladorCategoria;
+import controlador.ControladorClientes;
 import controlador.ControladorEstado;
 import controlador.ControladorLogin;
 import controlador.ControladorMp;
@@ -16,12 +17,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import vista.VistaAdmin;
 import vista.VistaCategoria;
+import vista.VistaClientes;
 import vista.VistaEstado;
 import vista.VistaLogin;
 import vista.VistaMateria;
 import vista.VistaReparaciones;
 import vista.VistaRol;
-import vista.VistaRopaClini;
+
 import vista.VistaRopaClinica;
 import vista.VistaRopaVenta;
 import vista.VistaSupervisor;
@@ -47,7 +49,7 @@ public class Index {
 //        VistaUsuarios vis = new VistaUsuarios();
 //        ControladorUs con = new ControladorUs(vis);
 //        vis.setVisible(true);
-//        vis.setSize(850,600);
+//        vis.setSize(869, 588);
 //        vis.setLocation(300, 10);
 //        
 //        vis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,7 +57,7 @@ public class Index {
 //        VistaRol ro = new VistaRol();
 //        ControladorRol con = new ControladorRol(ro);
 //        ro.setVisible(true);
-//        ro.setSize(850,600);
+//        ro.setSize(869, 588);
 //        ro.setLocation(300, 10);
 //        
 //        ro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,7 +65,7 @@ public class Index {
 //        VistaCategoria ca = new VistaCategoria();
 //        ControladorCategoria con = new ControladorCategoria(ca);
 //        ca.setVisible(true);
-//        ca.setSize(850,600);
+//        ca.setSize(869, 588);
 //        ca.setLocation(300, 10);
 //        
 //        ca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,23 +73,23 @@ public class Index {
 //        VistaMateria mp = new VistaMateria();
 //        ControladorMp con = new ControladorMp(mp);
 //        mp.setVisible(true);
-//        mp.setSize(850,600);
+//        mp.setSize(869, 588);
 //        mp.setLocation(300, 10);
 //        
 //        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        VistaLogin log = new VistaLogin();
-        ControladorLogin con = new ControladorLogin(log);
-        log.setVisible(true);
-        log.setSize(850,600);
-        log.setLocation(300, 10);
-        
-        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        VistaLogin log = new VistaLogin();
+//        ControladorLogin con = new ControladorLogin(log);
+//        log.setVisible(true);
+//        log.setSize(869, 588);
+//        log.setLocation(300, 10);
+//        
+//        log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 //        VistaRopaVenta ropv = new VistaRopaVenta();
 //        ControladorRopaVenta con = new ControladorRopaVenta(ropv);
 //        ropv.setVisible(true);
-//        ropv.setSize(850,600);
+//        ropv.setSize(869, 588);
 //        ropv.setLocation(300, 10);
 //        
 //        ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -95,7 +97,7 @@ public class Index {
 //       VistaTecnico vistaT = new VistaTecnico();
 //        ControladorTecnico con = new ControladorTecnico(vistaT);
 //        vistaT.setVisible(true);
-//        vistaT.setSize(850,600);
+//        vistaT.setSize(869, 588);
 //        vistaT.setLocation(300, 10);
 //        
 //        vistaT.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,7 +105,7 @@ public class Index {
 //        VistaRopaClinica ropc = new VistaRopaClinica();
 //        ControladorRopaClinica con = new ControladorRopaClinica(ropc);
 //        ropc.setVisible(true);
-//        ropc.setSize(850,600);
+//        ropc.setSize(869, 588);
 //        ropc.setLocation(300, 10);
 //        
 //        ropc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,36 +113,43 @@ public class Index {
 //         VistaEstado es = new VistaEstado();
 //        ControladorEstado con = new ControladorEstado(es);
 //        es.setVisible(true);
-//        es.setSize(850,600);
+//        es.setSize(869, 588);
 //        es.setLocation(300, 10);
            //es.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 //            VistaAdmin visadmin = new VistaAdmin();
 //             ControladorAdmin coneadmin = new ControladorAdmin(visadmin);
 //      visadmin.setVisible(true);
-//           visadmin.setSize(850,600);
+//           visadmin.setSize(869, 588);
 //                  visadmin.setLocation(300, 10);
 //           visadmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 //          VistaSupervisor visasuper = new VistaSupervisor();
 //        ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
 //        visasuper.setVisible(true);
-//        visasuper.setSize(900, 760);
+//        visasuper.setSize(880, 730);
 //        visasuper.setLocation(300, 10);
 //        visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            
 //       VistaVenta visven = new VistaVenta();
 //        ControladorVenta cones = new ControladorVenta(visven);
 //        visven.setVisible(true);
-//        visven.setSize(900, 650);
+//        visven.setSize(869, 588);
 //        visven.setLocation(300, 10);
 //        visven.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 //        VistaReparaciones vistrepair = new VistaReparaciones();
 //        ControladorReparaciones conesuper = new ControladorReparaciones(vistrepair);
 //        vistrepair.setVisible(true);
-//        vistrepair.setSize(900, 650);
+//        vistrepair.setSize(869, 588;
 //        vistrepair.setLocation(300, 10);
 //        vistrepair.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         VistaClientes vistaC = new VistaClientes();
+                ControladorClientes conC = new ControladorClientes(vistaC);
+                vistaC.setVisible(true);
+                vistaC.setSize(998, 659);
+                vistaC.setLocationRelativeTo(null);
+        
+                vistaC.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 }

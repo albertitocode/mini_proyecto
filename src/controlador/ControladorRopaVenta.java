@@ -158,7 +158,7 @@ public class ControladorRopaVenta implements ActionListener {
             
             ControladorLogin con = new ControladorLogin(log);
             log.setVisible(true);
-            log.setSize(850, 600);
+            log.setSize(869, 588);
             log.setLocation(300, 10);
             vista5.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

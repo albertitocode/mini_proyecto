@@ -120,7 +120,7 @@ public class ControladorCategoria implements ActionListener {
             VistaAdmin visadmin = new VistaAdmin();
                         ControladorAdmin coneadmin = new ControladorAdmin(visadmin);
                         visadmin.setVisible(true);
-                        visadmin.setSize(850,600);
+                        visadmin.setSize(869, 588);
                         visadmin.setLocation(300, 10);
                         vista3.dispose();
                         visadmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,7 +131,7 @@ public class ControladorCategoria implements ActionListener {
             
             ControladorLogin con = new ControladorLogin(log);
             log.setVisible(true);
-            log.setSize(850, 600);
+            log.setSize(869, 588);
             log.setLocation(300, 10);
             vista3.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -141,7 +141,7 @@ public class ControladorCategoria implements ActionListener {
               VistaClientes vclientes = new VistaClientes();
              ControladorClientes concli = new ControladorClientes(vclientes);
              vclientes.setVisible(true);
-             vclientes.setSize(850, 600);
+             vclientes.setSize(869, 588);
              vclientes.setLocation(300, 10);
              vista3.dispose();
              vclientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -150,7 +150,7 @@ public class ControladorCategoria implements ActionListener {
             VistaEstado es = new VistaEstado();
             ControladorEstado con = new ControladorEstado(es);
             es.setVisible(true);
-            es.setSize(850, 600);
+            es.setSize(869, 588);
             es.setLocation(300, 10);
             vista3.dispose();
             es.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -162,7 +162,7 @@ public class ControladorCategoria implements ActionListener {
              VistaRol ro = new VistaRol();
         ControladorRol conrol = new ControladorRol(ro);
         ro.setVisible(true);
-        ro.setSize(850,600);
+        ro.setSize(869, 588);
         ro.setLocation(300, 10);
         vista3.dispose();
         ro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -172,7 +172,7 @@ public class ControladorCategoria implements ActionListener {
             ControladorUs conusu = new ControladorUs(vis);
             
             vis.setVisible(true);
-            vis.setSize(850, 600);
+            vis.setSize(869, 588);
             vis.setLocation(300, 10);
             vista3.dispose();
             vis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

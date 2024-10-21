@@ -65,7 +65,7 @@ public class ControladorLogin implements ActionListener {
                         VistaAdmin visadmin = new VistaAdmin();
                         ControladorAdmin coneadmin = new ControladorAdmin(visadmin);
                         visadmin.setVisible(true);
-                        visadmin.setSize(850, 600);
+                        visadmin.setSize(869, 588);
                         visadmin.setLocation(300, 10);
                         vista3.dispose();
                         visadmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,16 +75,20 @@ public class ControladorLogin implements ActionListener {
                         VistaVenta vista = new VistaVenta();
                         ControladorVenta conVenta = new ControladorVenta(vista, lg);
                         vista.setVisible(true);
-                        vista.setSize(850, 600);
+                        vista.setSize(869, 588);
                         vista.setLocation(300, 10);
                         vista3.dispose();
                         vista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         break;
                     }
                     case "Supervisor": {
-                        //                    JOptionPane.showMessageDialog(vista3,"No funca");
-                        VistaSupervisor vista = new VistaSupervisor();
-                        vista.setVisible(true);
+                        VistaSupervisor visasuper = new VistaSupervisor();
+                        ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
+                        visasuper.setVisible(true);
+                        visasuper.setSize(880, 730);
+                        visasuper.setLocation(300, 10);
+                         vista3.dispose();
+                        visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         break;
                     }
                     case "Tecnico": {
@@ -92,7 +96,7 @@ public class ControladorLogin implements ActionListener {
                         ControladorTecnico conTecnico = new ControladorTecnico(vistaT);
                         conTecnico.mostrarCorreo(correo);
                         vistaT.setVisible(true);
-                        vistaT.setSize(850, 600);
+                        vistaT.setSize(869, 588);
                         vistaT.setLocation(300, 10);
                         vista3.dispose();
                         vistaT.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

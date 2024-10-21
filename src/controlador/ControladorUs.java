@@ -56,7 +56,7 @@ public class ControladorUs implements ActionListener{
         this.vista1.btncategorias.addActionListener(this);
         this.vista1.btnclientes.addActionListener(this);
         this.vista1.btnestados.addActionListener(this);
-        this.vista1.btnperfil.addActionListener(this);
+//        this.vista1.btnperfil.addActionListener(this);
         this.vista1.btnroles.addActionListener(this);
         this.vista1.btninicio.addActionListener(this);
         
@@ -167,7 +167,7 @@ public class ControladorUs implements ActionListener{
              VistaCategoria ca = new VistaCategoria();
         ControladorCategoria con = new ControladorCategoria(ca);
         ca.setVisible(true);
-        ca.setSize(850,600);
+        ca.setSize(869, 588);
         ca.setLocation(300, 10);
           vista1.dispose();
         ca.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -176,7 +176,7 @@ public class ControladorUs implements ActionListener{
                   VistaClientes vclientes = new VistaClientes();
         ControladorClientes concli = new ControladorClientes(vclientes);
         vclientes.setVisible(true);
-        vclientes.setSize(850,600);
+        vclientes.setSize(869, 588);
         vclientes.setLocation(300, 10);
         vista1.dispose();
         vclientes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -185,19 +185,19 @@ public class ControladorUs implements ActionListener{
             VistaEstado es = new VistaEstado();
             ControladorEstado con = new ControladorEstado(es);
             es.setVisible(true);
-            es.setSize(850, 600);
+            es.setSize(869, 588);
             es.setLocation(300, 10);
             vista1.dispose();
             es.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
-        if(ae.getSource()==vista1.btnperfil){
-            JOptionPane.showMessageDialog(vista1,"Boton perfil en mantenimiento");
-        }
+//        if(ae.getSource()==vista1.btnperfil){
+//            JOptionPane.showMessageDialog(vista1,"Boton perfil en mantenimiento");
+//        }
         if(ae.getSource()==vista1.btnroles){
              VistaRol ro = new VistaRol();
         ControladorRol conrol = new ControladorRol(ro);
         ro.setVisible(true);
-        ro.setSize(850,600);
+        ro.setSize(869, 588);
         ro.setLocation(300, 10);
         vista1.dispose();
         ro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -208,7 +208,7 @@ public class ControladorUs implements ActionListener{
             
             ControladorLogin con = new ControladorLogin(log);
             log.setVisible(true);
-            log.setSize(850, 600);
+            log.setSize(869, 588);
             log.setLocation(300, 10);
             vista1.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

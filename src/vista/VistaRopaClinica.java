@@ -15,6 +15,7 @@ public class VistaRopaClinica extends javax.swing.JFrame {
      */
     public VistaRopaClinica() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

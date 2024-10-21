@@ -15,6 +15,7 @@ public class VistaEstado extends javax.swing.JFrame {
      */
     public VistaEstado() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**
@@ -124,7 +125,7 @@ public class VistaEstado extends javax.swing.JFrame {
                 .addComponent(btncategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnroles, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
                 .addComponent(btncerrar)
                 .addGap(32, 32, 32))
         );
@@ -145,7 +146,7 @@ public class VistaEstado extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 80));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 80));
 
         jPanel2.setBackground(new java.awt.Color(234, 223, 191));
 
@@ -245,7 +246,7 @@ public class VistaEstado extends javax.swing.JFrame {
                                     .addGap(53, 53, 53)
                                     .addComponent(enviar))
                                 .addComponent(miScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(374, Short.MAX_VALUE))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +273,7 @@ public class VistaEstado extends javax.swing.JFrame {
                 .addContainerGap(82, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 850, 520));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 870, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -57,7 +57,7 @@ import vista.VistaSupervisor;
             VistaSupervisor visasuper = new VistaSupervisor();
             ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
             visasuper.setVisible(true);
-            visasuper.setSize(900, 650);
+            visasuper.setSize(869, 588);
             visasuper.setLocation(300, 10);
             visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
@@ -65,7 +65,7 @@ import vista.VistaSupervisor;
             VistaSupervisor visasuper = new VistaSupervisor();
             ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
             visasuper.setVisible(true);
-            visasuper.setSize(900, 650);
+            visasuper.setSize(869, 588);
             visasuper.setLocation(300, 10);
             visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }

@@ -64,7 +64,7 @@ public class ControladorVenta implements ActionListener {
                 VistaClientes vistaC = new VistaClientes();
                 ControladorClientes conC = new ControladorClientes(vistaC);
                 vistaC.setVisible(true);
-                vistaC.setSize(880, 600);
+                vistaC.setSize(998, 659);
                 vistaC.setLocationRelativeTo(null);
                 vista1.dispose();
                 vistaC.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

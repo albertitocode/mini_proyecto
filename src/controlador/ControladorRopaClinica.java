@@ -21,7 +21,7 @@ import modelo.RopaVenta;
 import modelo.Usuarios;
 import vista.VistaLogin;
 import vista.VistaMateria;
-import vista.VistaRopaClini;
+
 import vista.VistaRopaClinica;
 import vista.VistaRopaVenta;
 import vista.VistaSupervisor;
@@ -176,7 +176,7 @@ public class ControladorRopaClinica implements ActionListener {
             
             ControladorLogin con = new ControladorLogin(log);
             log.setVisible(true);
-            log.setSize(850, 600);
+            log.setSize(869, 588);
             log.setLocation(300, 10);
             vistaclinica.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -186,7 +186,7 @@ public class ControladorRopaClinica implements ActionListener {
                 VistaSupervisor visasuper = new VistaSupervisor();
                 ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
                 visasuper.setVisible(true);
-                visasuper.setSize(900, 650);
+                visasuper.setSize(869, 588);
                 visasuper.setLocation(300, 10);
                 vistaclinica.dispose();
                 visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -198,7 +198,7 @@ public class ControladorRopaClinica implements ActionListener {
                 VistaMateria vismate = new VistaMateria();
                 ControladorMp conesuper = new ControladorMp(vismate);
                 vismate.setVisible(true);
-                vismate.setSize(900, 650);
+                vismate.setSize(869, 588);
                 vismate.setLocation(300, 10);
                 vistaclinica.dispose();
                 vismate.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

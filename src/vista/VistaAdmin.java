@@ -15,7 +15,7 @@ public class VistaAdmin extends javax.swing.JFrame {
      */
     public VistaAdmin() {
         initComponents();
-     
+     this.setResizable(false);
     }
 
     /**

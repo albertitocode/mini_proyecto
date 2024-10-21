@@ -121,7 +121,7 @@ public class ControladorMp implements ActionListener {
             
             ControladorLogin con = new ControladorLogin(log);
             log.setVisible(true);
-            log.setSize(850, 600);
+            log.setSize(869, 588);
             log.setLocation(300, 10);
             vista4.dispose();
             log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,7 +131,7 @@ public class ControladorMp implements ActionListener {
                 VistaSupervisor visasuper = new VistaSupervisor();
                 ControladorSupervisor conesuper = new ControladorSupervisor(visasuper);
                 visasuper.setVisible(true);
-                visasuper.setSize(881, 740);
+                visasuper.setSize(869, 588);
                 visasuper.setLocation(300, 10);
                 vista4.dispose();
                 visasuper.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -143,7 +143,7 @@ public class ControladorMp implements ActionListener {
              VistaRopaVenta ropv = new VistaRopaVenta();
             ControladorRopaVenta con = new ControladorRopaVenta(ropv);
             ropv.setVisible(true);
-            ropv.setSize(850,600);
+            ropv.setSize(869, 588);
             ropv.setLocation(300, 10);
             vista4.dispose();
             ropv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

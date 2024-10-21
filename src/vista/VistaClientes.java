@@ -15,6 +15,7 @@ public class VistaClientes extends javax.swing.JFrame {
      */
     public VistaClientes() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**
@@ -216,11 +217,11 @@ public class VistaClientes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE", "ID CLIENTE", "DIRECCION", "TELEFONO"
+                "ID", "NOMBRE", "APELLIDO", "ID CLIENTE", "DIRECCION", "TELEFONO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
